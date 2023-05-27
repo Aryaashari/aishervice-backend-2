@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="fragments :: header"></head>
+<body class="sidebar-noneoverflow starterkit">
+    
+    <div th:replace="fragments :: navbar"></div>
+
+    <!--  BEGIN MAIN CONTAINER  -->
+    <div class="main-container" id="container">
+
+        <div class="overlay"></div>
+        <div class="search-overlay"></div>
+
+        <div th:replace="fragments :: sidebar"></div>
+        
+        <!--  BEGIN CONTENT AREA  -->
+        <div id="content" class="main-content">
+            <div class="layout-px-spacing">
+
+
+                <!-- CONTENT AREA -->
+
+                <div class="page-header">
+                    <div class="page-title">
+                        <h3>Pelanggan</h3>
+                    </div>
+                </div>
+                <div class="row layout-top-spacing">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
+                        <div class="widget-content-area br-4">
+                            <div class="widget-one">
+
+                                <ul class="nav nav-tabs  mb-3 mt-3 nav-fill" id="justifyTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="justify-home-tab" data-toggle="tab" href="#justify-home" role="tab" aria-controls="justify-home" aria-selected="true">Tambah Pelanggan</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="justify-contact-tab" data-toggle="tab" href="#justify-contact" role="tab" aria-controls="justify-contact" aria-selected="false">List Pelanggan</a>
+                                    </li>
+                                </ul>
+                                
+                                <div class="tab-content" id="justifyTabContent">
+                                    <div class="tab-pane fade show active" id="justify-home" role="tabpanel" aria-labelledby="justify-home-tab">
+                                       
+        
+                                          <form class="needs-validation" novalidate action="/pelanggan" method="post">
+                                            <div class="form-row">
+                                                <div class="col-md-4 mb-5">
+                                                    <label for="validationTooltip01">Nama</label>
+                                                    <input type="text" class="form-control" name="nama" id="validationTooltip01" placeholder="Nama depan" autocomplete="off"value="" required>
+                                                    <div class="valid-tooltip">
+                                                        Looks good!
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 mb-5">
+                                                    <label for="validationTooltipUsername">Email</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" name="email" id="validationTooltipUsername" placeholder="Email" aria-describedby="validationTooltipUsernamePrepend" required>
+                                                        <div class="invalid-tooltip">
+                                                            Please choose a unique and valid username.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 mb-5">
+                                                    <label for="validationTooltip03">Nomor Handphone</label>
+                                                    <input type="text" class="form-control" name="no_hp" id="validationTooltip03" placeholder="Nomor Handphone" required>
+                                                    <div class="invalid-tooltip">
+                                                        Please provide a valid city.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-12 mb-5">
+                                                    <textarea class="form-control" name="alamat" rows="4" placeholder="Alamat"></textarea>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-primary mt-2" type="submit">Tambah</button>
+                                        </form>                                 
+                                    </div>
+                                    <div class="tab-pane fade" id="justify-contact" role="tabpanel" aria-labelledby="justify-contact-tab">
+                                        <div class="table-responsive">
+                                            <table class="table mb-4 contextual-table">
+                                                <thead>
+                                                    <tr class="">
+                                                        <th class="text-center">No</th>
+                                                        <th>Nama</th>
+                                                        <th>Email</th>
+                                                        <th>No Handphone</th>
+                                                        <th>ID</th>
+                                                        <th>Aksi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="table-primary" th:each="customer, index : ${customers}">
+                                                        <td class="text-center" th:text="${index.index + 1}"></td>
+                                                        <td th:text="${customer.getNama()}"></td>
+                                                        <td th:text="${customer.getEmail()}"></td>
+                                                        <td th:text="${customer.getNoHp()}"></td>
+                                                        <td th:text="${customer.getIdPelanggan()}"></td>
+                                                        <td>
+                                                            <form method="post" th:action="@{/pelanggan/{id}/hapus(id=${customer.getIdPelanggan()})}">
+                                                                <button class="btn btn-danger mt-2" type="submit">Hapus</button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTAINER -->
+
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
+    <script src="assets/js/custom.js"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    <script>
+        var currentPath = window.location.pathname;
+        $('.menu').removeClass('active');
+        $('a[href="' + currentPath + '"], a[data-active="true"]').closest('.menu').addClass('active');
+    </script>
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+</body>
+</html>

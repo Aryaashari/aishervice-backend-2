@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="en" th:replace="fragments :: header"></head>
+<body class="sidebar-noneoverflow starterkit">
+    
+    <div th:replace="fragments :: navbar"></div>
+
+    <!--  BEGIN MAIN CONTAINER  -->
+    <div class="main-container" id="container">
+
+        <div class="overlay"></div>
+        <div class="search-overlay"></div>
+
+        <div th:replace="fragments :: sidebar"></div>
+        
+        <!--  BEGIN CONTENT AREA  -->
+        <div id="content" class="main-content">
+            <div class="layout-px-spacing">
+
+
+                <!-- CONTENT AREA -->
+
+                <div class="page-header">
+                    <div class="page-title">
+                        <h3>Inventaris</h3>
+                    </div>
+                </div>
+                
+
+                <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing mt-5">
+                    <div class="row widget-statistic">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                            <div class="widget widget-one_hybrid widget-referral">
+                                <div class="widget-heading">
+                                    <div class="w-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                                    </div>
+                                    <p class="w-value">3</p>
+                                    <h5 class="">Kampas Rem</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                            <div class="widget widget-one_hybrid widget-referral">
+                                <div class="widget-heading">
+                                    <div class="w-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                                    </div>
+                                    <p class="w-value">4</p>
+                                    <h5 class="">Minyak rem</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                            <div class="widget widget-one_hybrid widget-referral">
+                                <div class="widget-heading">
+                                    <div class="w-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                                    </div>
+                                    <p class="w-value">2</p>
+                                    <h5 class="">Busi</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row layout-top-spacing">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
+                        <div class="widget-content-area br-4">
+                            <div class="widget-one">
+
+                                <h6>List Inventaris</h6>
+
+                                <div class="table-responsive">
+                                    <table class="table mb-4">
+                                        <div class="btn-group mt-1" role="group" aria-label="Basic example">
+                                            <button type="button" class="btn btn-primary">Tambah Inventaris</button>
+                                        </div>
+                                        <div class="search-input-group-style input-group mb-3 mt-3 ml-auto">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Cari Inventaris" aria-label="Username" aria-describedby="basic-addon1">
+                                        </div>
+                                      <caption>List semua inventaris</caption>
+                                      <thead>
+                                            <tr>
+                                                <th class="text-center">#</th>
+                                                <th>ID_Inventaris</th>
+                                                <th>Suku Cadang</th>
+                                                <th class="">Stok</th>
+                                                <th>Harga</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center">1</td>
+                                                <td class="text-primary">10101</td>
+                                                <td>Kampas rem</td>
+                                                <td class=""><span class="badge outline-badge-danger shadow-none">3</span></td>
+                                                <td>Rp.15000</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success">Tambah Stok</button>
+                                                    <button type="button" class="btn btn-danger">Hapus Stok</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">2</td>
+                                                <td class="text-primary">10102</td>
+                                                <td>Oli</td>
+                                                <td class=""><span class=" shadow-none badge outline-badge-primary">15</span></td>
+                                                <td>Rp.50000</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success">Tambah Stok</button>
+                                                    <button type="button" class="btn btn-danger">Hapus Stok</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">3</td>
+                                                <td class="text-primary">10103</td>
+                                                <td>Minyak rem</td>
+                                                <td class=""><span class="badge outline-badge-danger shadow-none">4</span></td>
+                                                <td>Rp.10000</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success">Tambah Stok</button>
+                                                    <button type="button" class="btn btn-danger">Hapus Stok</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">4</td>
+                                                <td class="text-primary">10104</td>
+                                                <td>Rantai</td>
+                                                <td class=""><span class=" shadow-none badge outline-badge-primary">10</span></td>
+                                                <td>Rp.45000</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success">Tambah Stok</button>
+                                                    <button type="button" class="btn btn-danger">Hapus Stok</button>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td class="text-center">5</td>
+                                                <td class="text-primary">10105</td>
+                                                <td>Busi</td>
+                                                <td class=""><span class="badge outline-badge-danger shadow-none">2</span></td>
+                                                <td>Rp.20000</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success">Tambah Stok</button>
+                                                    <button type="button" class="btn btn-danger">Hapus Stok</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                    
+                             
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- CONTENT AREA -->
+
+            </div>
+            <div th:replace="fragments :: footer"></div>
+        </div>
+        <!--  END CONTENT AREA  -->
+
+    </div>
+    <!-- END MAIN CONTAINER -->
+
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
+    <script src="assets/js/custom.js"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    <script src="plugins/apex/apexcharts.min.js"></script>
+    <script src="assets/js/dashboard/dash_1.js"></script>
+    <script>
+        var currentPath = window.location.pathname;
+        $('.menu').removeClass('active');
+        $('a[href="' + currentPath + '"], a[data-active="true"]').closest('.menu').addClass('active');
+    </script>
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+</body>
+</html>

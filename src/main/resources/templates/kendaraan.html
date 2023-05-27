@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="fragments :: header"></head>
+<body class="sidebar-noneoverflow starterkit">
+    
+    <div th:replace="fragments :: navbar"></div>
+
+    <!--  BEGIN MAIN CONTAINER  -->
+    <div class="main-container" id="container">
+
+        <div class="overlay"></div>
+        <div class="search-overlay"></div>
+
+        <div th:replace="fragments :: sidebar"></div>
+        
+        <!--  BEGIN CONTENT AREA  -->
+        <div id="content" class="main-content">
+            <div class="layout-px-spacing">
+
+
+                <!-- CONTENT AREA -->
+
+                <div class="page-header">
+                    <div class="page-title">
+                        <h3>Kendaraan</h3>
+                    </div>
+                </div>
+                
+
+                <div class="row layout-top-spacing">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
+                        <div class="widget-content-area br-4">
+                            <div class="widget-one">
+
+                                <h6>Tambah Kendaraan</h6>
+
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">Plat Nomor</span>
+                                    </div>
+                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control">
+                                  </div>
+
+                                  <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">ID_Pelanggan</span>
+                                    </div>
+                                    <input type="text" class="form-control">
+                                  </div>
+                                
+                                  <input type="submit" class="btn btn-info btn-block mb-4 mr-2" value="Submit">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row layout-top-spacing">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
+                        <div class="widget-content-area br-4">
+                            <div class="widget-one">
+
+                                <h6>List Kendaraan</h6>
+
+                                <div class="table-responsive">
+                                    <table class="table mb-4">
+                                      <caption>List of all users</caption>
+                                      <thead>
+                                            <tr>
+                                                <th class="text-center">#</th>
+                                                <th>ID_Pelanggan</th>
+                                                <th>No Plat</th>
+                                                <th class="">Status</th>
+                                                <th>Register</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center">1</td>
+                                                <td class="text-primary">12312</td>
+                                                <td>D 6581 SAT</td>
+                                                <td class=""><span class=" shadow-none badge outline-badge-primary">Complete</span></td>
+                                                <td>5 min ago</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">2</td>
+                                                <td class="text-primary">12313</td>
+                                                <td>B 6257 VFS</td>
+                                                <td class=""><span class="badge outline-badge-secondary shadow-none">Pending</span></td>
+                                                <td>10 min ago</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">3</td>
+                                                <td class="text-primary">12314</td>
+                                                <td>D 1238 AAM</td>
+                                                <td class=""><span class="badge outline-badge-info shadow-none">In Progress</span></td>
+                                                <td>1 hour ago</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">4</td>
+                                                <td class="text-primary">12315</td>
+                                                <td>D 8327 FAD</td>
+                                                <td class=""><span class="badge outline-badge-danger shadow-none">Cancel</span></td>
+                                                <td>1 day ago</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                    
+                             
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- CONTENT AREA -->
+
+            </div>
+            <div class="footer-wrapper">
+                <div class="footer-section f-section-1">
+                    <p class="">Copyright © 2020 <a target="_blank" href="https://designreset.com">DesignReset</a>, All rights reserved.</p>
+                </div>
+                <div class="footer-section f-section-2">
+                    <p class="">Coded with <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></p>
+                </div>
+            </div>
+        </div>
+        <!--  END CONTENT AREA  -->
+
+    </div>
+    <!-- END MAIN CONTAINER -->
+
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
+    <script src="assets/js/custom.js"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    <script>
+        var currentPath = window.location.pathname;
+        $('.menu').removeClass('active');
+        $('a[href="' + currentPath + '"], a[data-active="true"]').closest('.menu').addClass('active');
+    </script>
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+</body>
+</html>

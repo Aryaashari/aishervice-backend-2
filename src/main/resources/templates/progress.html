@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="fragments :: header"></head>
+<body class="sidebar-noneoverflow starterkit">
+    
+    <div th:replace="fragments :: navbar"></div>
+
+    <!--  BEGIN MAIN CONTAINER  -->
+    <div class="main-container" id="container">
+
+        <div class="overlay"></div>
+        <div class="search-overlay"></div>
+
+        <div th:replace="fragments :: sidebar"></div>
+        
+        <!--  BEGIN CONTENT AREA  -->
+        <div id="content" class="main-content">
+            <div class="layout-px-spacing">
+
+
+                <!-- CONTENT AREA -->
+
+                <div class="page-header">
+                    <div class="page-title">
+                        <h3>Progress</h3>
+                    </div>
+                </div>
+                
+
+                <div class="row layout-top-spacing">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
+                        <div class="widget-content-area br-4">
+                            <div class="widget-one">
+
+                                <h6>List Progress</h6>
+
+                                <div class="table-responsive">
+                                    <table class="table mb-4">
+                                      <caption>List semua progress</caption>
+                                      <thead>
+                                            <tr>
+                                                <th class="text-center">#</th>
+                                                <th>ID_Progress</th>
+                                                <th>ID_Servis</th>
+                                                <th class="">Catatan</th>
+                                                <th>Waktu</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center">1</td>
+                                                <td class="text-primary">13201</td>
+                                                <td class="text-primary">13101</td>
+                                                <td class=""><span class="badge outline-badge-success shadow-none">Sedang dikerjakan montir</span></td>
+                                                <td>50 menit</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success">Selesai</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">2</td>
+                                                <td class="text-primary">13203</td>
+                                                <td class="text-primary">13103</td>
+                                                <td class=""><span class="badge outline-badge-info shadow-none">Menunggu giliran</span></td>
+                                                <td>50 menit</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success">Selesai</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">3</td>
+                                                <td class="text-primary">13202</td>
+                                                <td class="text-primary">13102</td>
+                                                <td class=""><span class="badge outline-badge-danger shadow-none">Suku cadang habis</span></td>
+                                                <td>-</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success">Selesai</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                    
+                             
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- CONTENT AREA -->
+
+            </div>
+            <div class="footer-wrapper">
+                <div class="footer-section f-section-1">
+                    <p class="">Copyright © 2020 <a target="_blank" href="https://designreset.com">DesignReset</a>, All rights reserved.</p>
+                </div>
+                <div class="footer-section f-section-2">
+                    <p class="">Coded with <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></p>
+                </div>
+            </div>
+        </div>
+        <!--  END CONTENT AREA  -->
+
+    </div>
+    <!-- END MAIN CONTAINER -->
+
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
+    <script src="assets/js/custom.js"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    <script>
+        var currentPath = window.location.pathname;
+        $('.menu').removeClass('active');
+        $('a[href="' + currentPath + '"], a[data-active="true"]').closest('.menu').addClass('active');
+    </script>
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+</body>
+</html>

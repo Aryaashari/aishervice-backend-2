@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="fragments :: header"></head>
+<body class="sidebar-noneoverflow starterkit">
+    
+    <div th:replace="fragments :: navbar"></div>
+
+    <!--  BEGIN MAIN CONTAINER  -->
+    <div class="main-container" id="container">
+
+        <div class="overlay"></div>
+        <div class="search-overlay"></div>
+
+        <div th:replace="fragments :: sidebar"></div>
+        
+        <!--  BEGIN CONTENT AREA  -->
+        <div id="content" class="main-content">
+            <div class="layout-px-spacing">
+
+
+                <!-- CONTENT AREA -->
+
+                <div class="page-header">
+                    <div class="page-title">
+                        <h3>Data Montir</h3>
+                    </div>
+                </div>
+                <div class="row layout-top-spacing">
+                    <div class="col-lg-12 col-12 layout-spacing">
+                        <div class="statbox widget box box-shadow">
+                            <div class="widget-content widget-content-area">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover mb-4">
+                                        <div class="search-input-group-style input-group mb-3 mt-3 ml-auto">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Cari Montir" aria-label="Username" aria-describedby="basic-addon1">
+                                            <div class="btn-group mt-1" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-primary">+</button>
+                                            </div>
+                                        </div>
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">No.</th>
+                                                <th class="text-center">ID Montir</th>
+                                                <th class="text-center">Nama</th>
+                                                <th class="text-center">No. HP</th>
+                                                <th class="text-center">Email</th>
+                                                <th class="text-center">Alamat</th>
+                                                <th class="text-center">Shift</th>
+                                                <th class="text-center">Status</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">ADR3016</td>
+                                                <td>Adhie Reza</td>
+                                                <td class="text-center">081234528</td>
+                                                <td>rezadhie@gmel.kom</td>
+                                                <td>199, Juanda, Bogor</td>
+                                                <td class="text-center">07.00 - 12.00</td>
+                                                <td class="text-center"><span class="text-info">In Action</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">ARY3020</td>
+                                                <td>Ashari Arya</td>
+                                                <td class="text-center">081273628</td>
+                                                <td>aryashari@gmel.kom</td>
+                                                <td>27, Cicendo, Jakarta</td>
+                                                <td class="text-center">15.00 - 20.00</td>
+                                                <td class="text-center"><span class="text-success">Available</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">3</td>
+                                                <td class="text-center">JUL0087</td>
+                                                <td>Juli Andri</td>
+                                                <td class="text-center">081126371</td>
+                                                <td>juliandr@gmel.kom</td>
+                                                <td>77, Kopo, Bandung</td>
+                                                <td class="text-center">15.00 - 20.00</td>
+                                                <td class="text-center"><span class="text-danger">Unavailable</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">4</td>
+                                                <td class="text-center">BAR0125</td>
+                                                <td>Barliant Rifqi</td>
+                                                <td class="text-center">08128237</td>
+                                                <td>barifiq@gmel.kom</td>
+                                                <td>678, Sukabirus, Depok</td>
+                                                <td class="text-center">12.00 - 15.00</td>
+                                                <td class="text-center"><span class="text-success">Available</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <!--  END CONTENT AREA  -->
+
+    </div>
+    <!-- END MAIN CONTAINER -->
+
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
+    <script src="assets/js/custom.js"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    <script>
+        var currentPath = window.location.pathname;
+        $('.menu').removeClass('active');
+        $('a[href="' + currentPath + '"], a[data-active="true"]').closest('.menu').addClass('active');
+    </script>
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+</body>
+</html>
