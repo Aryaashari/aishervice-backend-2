@@ -1,5 +1,7 @@
 package tubespbo.aisherviceapp.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,11 @@ public class AdminService {
     
     @Autowired
     private AdminRepository adminRepo;
+
+    @Transactional
+    public List<Admin> getAll() {
+        return this.adminRepo.findAll();
+    }
 
     @Transactional
     public Admin getDataByUsername(String username) {
