@@ -1,8 +1,11 @@
 package tubespbo.aisherviceapp.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,4 +27,7 @@ public class Customer {
     private String noHp;
     private String alamat;
     private String email;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Transportation> transportations;
 }
