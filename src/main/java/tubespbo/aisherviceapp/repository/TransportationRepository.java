@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import tubespbo.aisherviceapp.entity.Transportation;
 
 @Repository
-public interface TransportationController extends JpaRepository<Transportation, String> {
+public interface TransportationRepository extends JpaRepository<Transportation, String> {
     
 }
