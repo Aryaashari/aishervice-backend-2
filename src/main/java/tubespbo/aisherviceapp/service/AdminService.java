@@ -10,6 +10,8 @@ import tubespbo.aisherviceapp.entity.Admin;
 import tubespbo.aisherviceapp.model.AdminCreateRequest;
 import tubespbo.aisherviceapp.repository.AdminRepository;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 @Service
 public class AdminService {
     
@@ -30,7 +32,7 @@ public class AdminService {
     public void createAdmin(AdminCreateRequest request) {
         Admin admin = new Admin();
         admin.setUsername(request.getUsername());
-        admin.setPassword(request.getPassword());
+        admin.setPassword(BCrypt.hashpw(request.getPassword(), BCrypt.gensalt(10)));
         this.adminRepo.save(admin);
     }
 
