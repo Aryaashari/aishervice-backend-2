@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerResponse {
-    private String nama;
-    private String noHp;
-    private String alamat;
-    private String email; 
+public class AdminCreateRequest {
+    private String username;
+    private String password;
 }

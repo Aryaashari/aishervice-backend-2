@@ -22,6 +22,11 @@ public class CustomerService {
     }
 
     @Transactional
+    public Customer getById(Long id) {
+        return this.customerRepo.findById(id).orElseThrow(null);
+    }
+
+    @Transactional
     public void createCustomer(CustomerCreateRequest request) {
         Customer customer = new Customer();
         customer.setNama(request.getNama());
