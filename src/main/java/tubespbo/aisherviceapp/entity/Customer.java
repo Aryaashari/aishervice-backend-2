@@ -20,7 +20,7 @@ import lombok.Setter;
 @Table(name = "customer")
 public class Customer {
     @Id
-    private int idPelanggan;
+    private Long idPelanggan;
     private String nama;
 
     @Column(name="no_hp")
