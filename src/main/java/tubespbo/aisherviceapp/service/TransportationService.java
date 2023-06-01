@@ -22,4 +22,8 @@ public class TransportationService {
         return this.transportationRepo.findAll();
     }
 
+    public Transportation getByNoPlat(String noPlat) {
+        return this.transportationRepo.findById(noPlat).orElseThrow(null);
+    }
+
 }
