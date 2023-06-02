@@ -20,6 +20,7 @@ import lombok.Setter;
 @Table(name = "customer")
 public class Customer {
     @Id
+    @Column(name="id_pelanggan")
     private Long idPelanggan;
     private String nama;
 

@@ -10,13 +10,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import tubespbo.aisherviceapp.entity.Customer;
+import tubespbo.aisherviceapp.model.TransportationCreateRequest;
 import tubespbo.aisherviceapp.service.CustomerService;
+import tubespbo.aisherviceapp.service.TransportationService;
 
 @Controller
 public class TransportationController {
 
     @Autowired
     private CustomerService customerService;
+
+    @Autowired
+    private TransportationService transportationService;
     
     @GetMapping("/kendaraan")
     public String index(Model model) {
@@ -27,9 +32,10 @@ public class TransportationController {
     }
 
     @PostMapping("/kendaraan")
-    public String create(@RequestParam("plat1") String plat1, @RequestParam("plat2") String plat2, @RequestParam("plat3") String plat3, @RequestParam("pelanggan") Long pelanggan, @RequestParam("jenisKendaraan") String jenisKendaraan, @RequestParam("nomorKendaraan") String nomorKendaraan) {
+    public String create(@RequestParam("plat1") String plat1, @RequestParam("plat2") String plat2, @RequestParam("plat3") String plat3, @RequestParam("pelanggan") Long pelanggan, @RequestParam("jenisKendaraan") String jenisKendaraan, @RequestParam("nomorMesin") String nomorMesin) {
 
         String platNomor = plat1+plat2+plat3;
+        this.transportationService.createTransportation(new TransportationCreateRequest(platNomor, pelanggan, jenisKendaraan, nomorMesin));
         return "redirect:/kendaraan";
     }
 

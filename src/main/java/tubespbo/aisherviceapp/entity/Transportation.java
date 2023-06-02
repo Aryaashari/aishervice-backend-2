@@ -22,8 +22,8 @@ public class Transportation {
     @Column(name = "no_plat")
     private String noPlat;
 
-    @Column(name = "id_pelanggan")
-    private Long idPelanggan;
+    // @Column(name = "id_pelanggan")
+    // private Long idPelanggan;
 
     @Column(name = "jenis_kendaraan")
     private String jenisKendaraan;

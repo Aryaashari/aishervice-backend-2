@@ -31,14 +31,16 @@ public class TransportationService {
         return this.transportationRepo.findById(noPlat).orElseThrow(null);
     }
 
+    @Transactional
     public void createTransportation(TransportationCreateRequest request) {
         Customer customer = this.customerRepository.findById(request.getIdPelanggan()).orElseThrow(null);
         Transportation transportation = new Transportation();
         transportation.setCustomer(customer);
-        transportation.setIdPelanggan(customer.getIdPelanggan());
         transportation.setJenisKendaraan(request.getJenisKendaraan());
         transportation.setNoPlat(request.getNoPlat());
         transportation.setNomorMesin(request.getNomorMesin());
+
+        this.transportationRepo.save(transportation);
     }
 
 }
