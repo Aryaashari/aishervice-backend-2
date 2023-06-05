@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import tubespbo.aisherviceapp.entity.Customer;
+import tubespbo.aisherviceapp.entity.Transportation;
 import tubespbo.aisherviceapp.model.TransportationCreateRequest;
 import tubespbo.aisherviceapp.service.CustomerService;
 import tubespbo.aisherviceapp.service.TransportationService;
@@ -26,8 +27,10 @@ public class TransportationController {
     @GetMapping("/kendaraan")
     public String index(Model model) {
         List<Customer> customers = this.customerService.getAll();
+        List<Transportation> transportations = this.transportationService.getAll();
         model.addAttribute("currentPage", "kendaraan");
         model.addAttribute("customers", customers);
+        model.addAttribute("transportations", transportations);
         return "kendaraan";
     }
 

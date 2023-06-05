@@ -91,63 +91,24 @@
                   <div class="table-responsive">
                     <table class="table mb-4">
                       <caption>
-                        List of all users
+                        List Kendaraan
                       </caption>
                       <thead>
                         <tr>
                           <th class="text-center">#</th>
-                          <th>ID_Pelanggan</th>
+                          <th>Nama Pelanggan</th>
                           <th>No Plat</th>
-                          <th class="">Status</th>
-                          <th>Register</th>
+                          <th>Jenis Kendaraan</th>
+                          <th>Nomor Mesin</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td class="text-center">1</td>
-                          <td class="text-primary">12312</td>
-                          <td>D 6581 SAT</td>
-                          <td class="">
-                            <span
-                              class="shadow-none badge outline-badge-primary"
-                              >Complete</span
-                            >
-                          </td>
-                          <td>5 min ago</td>
-                        </tr>
-                        <tr>
-                          <td class="text-center">2</td>
-                          <td class="text-primary">12313</td>
-                          <td>B 6257 VFS</td>
-                          <td class="">
-                            <span
-                              class="badge outline-badge-secondary shadow-none"
-                              >Pending</span
-                            >
-                          </td>
-                          <td>10 min ago</td>
-                        </tr>
-                        <tr>
-                          <td class="text-center">3</td>
-                          <td class="text-primary">12314</td>
-                          <td>D 1238 AAM</td>
-                          <td class="">
-                            <span class="badge outline-badge-info shadow-none"
-                              >In Progress</span
-                            >
-                          </td>
-                          <td>1 hour ago</td>
-                        </tr>
-                        <tr>
-                          <td class="text-center">4</td>
-                          <td class="text-primary">12315</td>
-                          <td>D 8327 FAD</td>
-                          <td class="">
-                            <span class="badge outline-badge-danger shadow-none"
-                              >Cancel</span
-                            >
-                          </td>
-                          <td>1 day ago</td>
+                        <tr th:each="transportation, index : ${transportations}" >
+                          <td class="text-center" th:text="${index.index + 1}"></td>
+                          <td class="text-primary" th:text="${transportation.getCustomer()}"></td>
+                          <td th:text="${transportation.getNoPlat()}"></td>
+                          <td th:text="${transportation.getJenisKendaraan()}" ></td>
+                          <td th:text="${transportation.getNomorMesin()}"></td>
                         </tr>
                       </tbody>
                     </table>
