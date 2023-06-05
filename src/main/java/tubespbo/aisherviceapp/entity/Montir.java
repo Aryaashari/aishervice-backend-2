@@ -28,6 +28,8 @@ public class Montir {
 
     private String alamat;
 
+    private String email;
+
     private String shift;
 
 }
