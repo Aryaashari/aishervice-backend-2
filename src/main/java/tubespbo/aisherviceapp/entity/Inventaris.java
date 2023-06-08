@@ -18,10 +18,14 @@ import lombok.Setter;
 
 public class Inventaris {
     @Id
+    @Column(name = "id_inventaris") 
     private int id_inventaris;
 
     @Column(name="suku_cadang")
     private String suku_cadang;
+
+    @Column(name="stok")
     private int stok;
+    @Column(name = "harga_satuan")
     private int harga_satuan;
 }

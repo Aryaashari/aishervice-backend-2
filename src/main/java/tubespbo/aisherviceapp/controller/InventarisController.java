@@ -42,11 +42,31 @@ public class InventarisController{
     public String tambahStok(@PathVariable("id") Long id, @RequestParam("jumlahStok") int jumlahStok, RedirectAttributes redirectAttributes) {
         try {
             Optional<Inventaris> optionalInventaris = inventarisRepository.findById(id);
+            
             if (optionalInventaris.isPresent()) {
                 Inventaris inventaris = optionalInventaris.get();
                 inventaris.setStok(inventaris.getStok() + jumlahStok);
                 inventarisRepository.save(inventaris);
                 redirectAttributes.addFlashAttribute("success", "Stok berhasil ditambahkan!");
+            } else {
+                redirectAttributes.addFlashAttribute("error", "Data inventaris tidak ditemukan.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "redirect:/inventaris";
+    }
+
+    @PostMapping("/inventaris/{id}/kurangi-stok")
+    public String kurangiStok(@PathVariable("id") Long id, @RequestParam("jumlahStok") int jumlahStok, RedirectAttributes redirectAttributes) {
+        try {
+            Optional<Inventaris> optionalInventaris = inventarisRepository.findById(id);
+            if (optionalInventaris.isPresent()) {
+                Inventaris inventaris = optionalInventaris.get();
+                inventaris.setStok(inventaris.getStok() - jumlahStok);
+                inventarisRepository.save(inventaris);
+                redirectAttributes.addFlashAttribute("success", "Stok berhasil dikurangi!");
             } else {
                 redirectAttributes.addFlashAttribute("error", "Data inventaris tidak ditemukan.");
             }

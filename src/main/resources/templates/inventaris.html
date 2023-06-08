@@ -91,10 +91,10 @@
                                                 <td th:text="${inventaris.getStok()}" class=""><span class=""></span></td>
                                                 <td th:text="${inventaris.getHarga_satuan()}"></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-success" data-toggle="modal" th:data-target="'#tambahStok-' + ${inventaris.id_inventaris}">
+                                                    <button type="button" class="btn btn-success" data-toggle="modal" th:data-target="'#tambahStok-' + ${inventaris.getId_inventaris()}">
                                                         Tambah Stok
                                                     </button>
-                                                    <div class="modal fade register-modal" th:id="'tambahStok-' + ${inventaris.id_inventaris}" tabindex="-1" role="dialog" th:aria-labelledby="'tambahStokLabel-' + ${inventaris.id_inventaris}" aria-hidden="true">
+                                                    <div class="modal fade register-modal" th:id="'tambahStok-' + ${inventaris.getId_inventaris()}" tabindex="-1" role="dialog" th:aria-labelledby="'tambahStokLabel-' + ${inventaris.getId_inventaris()}" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header" id="tambahStokLabel">
@@ -107,7 +107,7 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form class="mt-0" th:action="@{/inventaris/{id}/tambah-stok(id=${inventaris.id_inventaris})}" method="post" id="tambahStokForm" th:attr="data-id=${inventaris.id_inventaris}">
+                                                                    <form class="mt-0" th:action="@{/inventaris/{id}/tambah-stok(id=${inventaris.getId_inventaris()})}" method="post" id="tambahStokForm" th:attr="data-id=${inventaris.getId_inventaris()}">
                                                                         <div class="form-group">
                                                                             <input type="number" class="form-control mb-2" name="jumlahStok" id="exampleInput2" placeholder="Jumlah Stok" inputmode="numeric">
                                                                         </div>
@@ -189,16 +189,15 @@
     
     <script>
         function submitForm() {
-            event.preventDefault(); // Mencegah pengiriman form default
+            event.preventDefault(); 
 
-            var form = event.target.closest('form'); // Mendapatkan form terdekat yang menjadi induk tombol "Tambah"
-            var id_inventaris = form.getAttribute("data-id"); // Mendapatkan id_inventaris dari atribut "data-id"
+            var form = event.target.closest('form'); 
+            var id_inventaris = form.getAttribute("data-id"); 
 
-            // Mengganti "{id}" dengan id_inventaris yang sebenarnya dalam action URL form
             var url = form.getAttribute("action").replace("{id}", id_inventaris);
 
-            var xhr = new XMLHttpRequest(); // Membuat objek XMLHttpRequest
-            xhr.open('POST', url, true); // Mengatur metode, URL, dan asynchronous request
+            var xhr = new XMLHttpRequest(); 
+            xhr.open('POST', url, true);
 
             xhr.onload = function () {
                 if (xhr.status === 200) {
