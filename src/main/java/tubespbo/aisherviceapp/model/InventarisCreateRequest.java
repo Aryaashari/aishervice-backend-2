@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class InventarisCreateRequest {
+public class InventarisCreateRequest{
     private String suku_cadang;
     private int stok;
     private int harga_satuan; 

@@ -18,7 +18,7 @@ import tubespbo.aisherviceapp.service.InventarisService;
 import tubespbo.aisherviceapp.entity.Inventaris;;
 
 @Controller
-public class InventarisController {
+public class InventarisController{
     
     @Autowired
     private InventarisService inventarisService;

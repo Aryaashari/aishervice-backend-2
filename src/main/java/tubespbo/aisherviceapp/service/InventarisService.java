@@ -11,7 +11,7 @@ import tubespbo.aisherviceapp.model.InventarisCreateRequest;
 import tubespbo.aisherviceapp.repository.InventarisRepository;
 
 @Service
-public class InventarisService {
+public class InventarisService{
     
     @Autowired
     private InventarisRepository inventarisRepo;
