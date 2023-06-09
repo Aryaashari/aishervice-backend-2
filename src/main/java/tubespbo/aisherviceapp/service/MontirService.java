@@ -18,7 +18,9 @@ public class MontirService {
 
     @Transactional
     public List<Montir> getAll() {
-        return this.montirRepo.findAll();
+        List<Montir> montirs = this.montirRepo.findAll();
+
+        return montirs;
     }
 
 
