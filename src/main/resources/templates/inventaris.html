@@ -85,16 +85,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr th:each="inventaris, index : ${objInventaris}" th:id="'row-' + ${inventaris.getId_inventaris()}">
+                                            <tr th:each="inventaris, index : ${objInventaris}" th:id="'row-' + ${inventaris.getIdInventaris()}">
                                                 <td class="text-center" th:text="${index.index + 1}"></td>
-                                                <td th:text="${inventaris.getSuku_cadang()}"></td>
+                                                <td th:text="${inventaris.getSukuCadang()}"></td>
                                                 <td th:text="${inventaris.getStok()}" class=""><span class=""></span></td>
-                                                <td th:text="${inventaris.getHarga_satuan()}"></td>
+                                                <td th:text="${inventaris.getHargaSatuan()}"></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-success" data-toggle="modal" th:data-target="'#tambahStok-' + ${inventaris.getId_inventaris()}">
+                                                    <button type="button" class="btn btn-success" data-toggle="modal" th:data-target="'#tambahStok-' + ${inventaris.getIdInventaris()}">
                                                         Tambah Stok
                                                     </button>
-                                                    <div class="modal fade register-modal" th:id="'tambahStok-' + ${inventaris.getId_inventaris()}" tabindex="-1" role="dialog" th:aria-labelledby="'tambahStokLabel-' + ${inventaris.getId_inventaris()}" aria-hidden="true">
+                                                    <div class="modal fade register-modal" th:id="'tambahStok-' + ${inventaris.getIdInventaris()}" tabindex="-1" role="dialog" th:aria-labelledby="'tambahStokLabel-' + ${inventaris.getIdInventaris()}" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header" id="tambahStokLabel">
@@ -107,7 +107,7 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form class="mt-0" th:action="@{/inventaris/{id}/tambah-stok(id=${inventaris.getId_inventaris()})}" method="post" id="tambahStokForm" th:attr="data-id=${inventaris.getId_inventaris()}">
+                                                                    <form class="mt-0" th:action="@{/inventaris/{id}/tambah-stok(id=${inventaris.getIdInventaris()})}" method="post" id="tambahStokForm" th:attr="data-id=${inventaris.getIdInventaris()}">
                                                                         <div class="form-group">
                                                                             <input type="number" class="form-control mb-2" name="jumlahStok" id="exampleInput2" placeholder="Jumlah Stok" inputmode="numeric">
                                                                         </div>
@@ -117,10 +117,10 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal" th:data-target="'#kurangiStok-' + ${inventaris.getId_inventaris()}">
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal" th:data-target="'#kurangiStok-' + ${inventaris.getIdInventaris()}">
                                                         Kurangi Stok
                                                     </button>
-                                                    <div class="modal fade register-modal" th:id="'kurangiStok-' + ${inventaris.getId_inventaris()}" tabindex="-1" role="dialog" th:aria-labelledby="'tambahStokLabel-' + ${inventaris.getId_inventaris()}" aria-hidden="true">
+                                                    <div class="modal fade register-modal" th:id="'kurangiStok-' + ${inventaris.getIdInventaris()}" tabindex="-1" role="dialog" th:aria-labelledby="'tambahStokLabel-' + ${inventaris.getIdInventaris()}" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header" id="kurangiStokLabel">
@@ -128,7 +128,7 @@
                                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                            <form class="mt-0" action="/inventaris/{id}/kurangi-stok" method="post" id="kurangiStokForm" th:attr="data-id=${inventaris.getId_inventaris()}">
+                                                            <form class="mt-0" action="/inventaris/{id}/kurangi-stok" method="post" id="kurangiStokForm" th:attr="data-id=${inventaris.getIdInventaris()}">
                                                                 <div class="form-group">
                                                                     <input type="number" class="form-control mb-2" name="jumlahStok" id="exampleInput2" placeholder="Jumlah Stok" inputmode="numeric">
                                                                 </div>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import tubespbo.aisherviceapp.model.InventarisChangeStockRequest;
 import tubespbo.aisherviceapp.model.InventarisCreateRequest;
 import tubespbo.aisherviceapp.repository.InventarisRepository;
 import tubespbo.aisherviceapp.service.InventarisService;
@@ -41,16 +42,8 @@ public class InventarisController{
     @PostMapping("/inventaris/{id}/tambah-stok")
     public String tambahStok(@PathVariable("id") Long id, @RequestParam("jumlahStok") int jumlahStok, RedirectAttributes redirectAttributes) {
         try {
-            Optional<Inventaris> optionalInventaris = inventarisRepository.findById(id);
-            
-            if (optionalInventaris.isPresent()) {
-                Inventaris inventaris = optionalInventaris.get();
-                inventaris.setStok(inventaris.getStok() + jumlahStok);
-                inventarisRepository.save(inventaris);
-                redirectAttributes.addFlashAttribute("success", "Stok berhasil ditambahkan!");
-            } else {
-                redirectAttributes.addFlashAttribute("error", "Data inventaris tidak ditemukan.");
-            }
+            InventarisChangeStockRequest request = new InventarisChangeStockRequest(id, jumlahStok);
+            this.inventarisService.changeStock(request);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -61,15 +54,17 @@ public class InventarisController{
     @PostMapping("/inventaris/{id}/kurangi-stok")
     public String kurangiStok(@PathVariable("id") Long id, @RequestParam("jumlahStok") int jumlahStok, RedirectAttributes redirectAttributes) {
         try {
-            Optional<Inventaris> optionalInventaris = inventarisRepository.findById(id);
-            if (optionalInventaris.isPresent()) {
-                Inventaris inventaris = optionalInventaris.get();
-                inventaris.setStok(inventaris.getStok() - jumlahStok);
-                inventarisRepository.save(inventaris);
-                redirectAttributes.addFlashAttribute("success", "Stok berhasil dikurangi!");
-            } else {
-                redirectAttributes.addFlashAttribute("error", "Data inventaris tidak ditemukan.");
-            }
+            // Optional<Inventaris> optionalInventaris = inventarisRepository.findById(id);
+            // if (optionalInventaris.isPresent()) {
+            //     Inventaris inventaris = optionalInventaris.get();
+            //     inventaris.setStok(inventaris.getStok() - jumlahStok);
+            //     inventarisRepository.save(inventaris);
+            //     redirectAttributes.addFlashAttribute("success", "Stok berhasil dikurangi!");
+            // } else {
+            //     redirectAttributes.addFlashAttribute("error", "Data inventaris tidak ditemukan.");
+            // }
+            InventarisChangeStockRequest request = new InventarisChangeStockRequest(id, -jumlahStok);
+            this.inventarisService.changeStock(request);
         } catch (Exception e) {
             e.printStackTrace();
         }

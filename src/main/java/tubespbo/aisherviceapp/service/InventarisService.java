@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tubespbo.aisherviceapp.entity.Inventaris;
+import tubespbo.aisherviceapp.model.InventarisChangeStockRequest;
 import tubespbo.aisherviceapp.model.InventarisCreateRequest;
 import tubespbo.aisherviceapp.repository.InventarisRepository;
 
@@ -24,11 +25,18 @@ public class InventarisService{
     @Transactional
     public void createInventaris(InventarisCreateRequest request) {
         Inventaris objInventaris = new Inventaris();
-        objInventaris.setSuku_cadang(request.getSuku_cadang());
+        objInventaris.setSukuCadang(request.getSuku_cadang());
         objInventaris.setStok(request.getStok());
-        objInventaris.setHarga_satuan(request.getHarga_satuan());
+        objInventaris.setHargaSatuan(request.getHarga_satuan());
 
         this.inventarisRepo.save(objInventaris);
+    }
+
+    @Transactional
+    public void changeStock(InventarisChangeStockRequest request) {
+        Inventaris inventaris = this.inventarisRepo.findById(request.getId()).orElse(null);
+        inventaris.setStok(inventaris.getStok() + request.getStock());
+        this.inventarisRepo.save(inventaris);
     }
 
     @Transactional
