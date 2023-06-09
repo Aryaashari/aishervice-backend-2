@@ -28,12 +28,12 @@ public class TransportationService {
 
     @Transactional
     public Transportation getByNoPlat(String noPlat) {
-        return this.transportationRepo.findById(noPlat).orElseThrow(null);
+        return this.transportationRepo.findById(noPlat).orElse(null);
     }
 
     @Transactional
     public void createTransportation(TransportationCreateRequest request) {
-        Customer customer = this.customerRepository.findById(request.getIdPelanggan()).orElseThrow(null);
+        Customer customer = this.customerRepository.findById(request.getIdPelanggan()).orElse(null);
         Transportation transportation = new Transportation();
         transportation.setCustomer(customer);
         transportation.setJenisKendaraan(request.getJenisKendaraan());
