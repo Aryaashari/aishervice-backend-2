@@ -29,6 +29,75 @@
                     <div class="col-lg-12 col-12 layout-spacing">
                         <div class="statbox widget box box-shadow">
                             <div class="widget-content widget-content-area">
+                                <div class="row layout-top-spacing">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
+                                      <div class="widget-content-area br-4">
+                                        <div class="widget-one">
+                                          <h6>Tambah Montir</h6>
+                        
+                                          <form action="/montir" method="POST">
+                        
+                                            <div class="input-group mb-4">
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text">Nama</span>
+                                              </div>
+                                              <input
+                                                type="text"
+                                                name="nama"
+                                                class="form-control"
+                                              />
+                                            </div>
+
+                                            <div class="input-group mb-4">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text">No HP</span>
+                                                </div>
+                                                <input
+                                                  type="text"
+                                                  name="noHp"
+                                                  class="form-control"
+                                                />
+                                              </div>
+
+                                              <div class="input-group mb-4">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text">Email</span>
+                                                </div>
+                                                <input
+                                                  type="text"
+                                                  name="email"
+                                                  class="form-control"
+                                                />
+                                              </div>
+
+                                              <div class="input-group mb-4">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text">Shift</span>
+                                                </div>
+                                                <select class="custom-select" name="shift">
+                                                  <option selected value="">Pilih shift</option>
+                                                  <option value="shift1">Shift 1</option>
+                                                  <option value="shift2">Shift 2</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="col-12 mb-5">
+                                                    <textarea class="form-control" name="alamat" rows="4" placeholder="Alamat"></textarea>
+                                                </div>
+                                            </div>
+                        
+                                            <input
+                                              type="submit"
+                                              class="btn btn-info btn-block mb-4 mr-2"
+                                              value="Submit"
+                                            />
+                                          </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-hover mb-4">
                                         <div class="search-input-group-style input-group mb-3 mt-3 ml-auto">
@@ -43,56 +112,21 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center">No.</th>
-                                                <th class="text-center">ID Montir</th>
                                                 <th class="text-center">Nama</th>
                                                 <th class="text-center">No. HP</th>
                                                 <th class="text-center">Email</th>
                                                 <th class="text-center">Alamat</th>
                                                 <th class="text-center">Shift</th>
-                                                <th class="text-center">Status</th>
-                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="text-center">1</td>
-                                                <td class="text-center">ADR3016</td>
-                                                <td>Adhie Reza</td>
-                                                <td class="text-center">081234528</td>
-                                                <td>rezadhie@gmel.kom</td>
-                                                <td>199, Juanda, Bogor</td>
-                                                <td class="text-center">07.00 - 12.00</td>
-                                                <td class="text-center"><span class="text-info">In Action</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">2</td>
-                                                <td class="text-center">ARY3020</td>
-                                                <td>Ashari Arya</td>
-                                                <td class="text-center">081273628</td>
-                                                <td>aryashari@gmel.kom</td>
-                                                <td>27, Cicendo, Jakarta</td>
-                                                <td class="text-center">15.00 - 20.00</td>
-                                                <td class="text-center"><span class="text-success">Available</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">3</td>
-                                                <td class="text-center">JUL0087</td>
-                                                <td>Juli Andri</td>
-                                                <td class="text-center">081126371</td>
-                                                <td>juliandr@gmel.kom</td>
-                                                <td>77, Kopo, Bandung</td>
-                                                <td class="text-center">15.00 - 20.00</td>
-                                                <td class="text-center"><span class="text-danger">Unavailable</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">4</td>
-                                                <td class="text-center">BAR0125</td>
-                                                <td>Barliant Rifqi</td>
-                                                <td class="text-center">08128237</td>
-                                                <td>barifiq@gmel.kom</td>
-                                                <td>678, Sukabirus, Depok</td>
-                                                <td class="text-center">12.00 - 15.00</td>
-                                                <td class="text-center"><span class="text-success">Available</span></td>
+                                            <tr th:each="montir, index : ${montirs}">
+                                                <td class="text-center" th:text="${index.index + 1}"></td>
+                                                <td class="text-center" th:text="${montir.getName()}"></td>
+                                                <td class="text-center" th:text="${montir.getNoHp()}"></td>
+                                                <td class="text-center" th:text="${montir.getEmail()}"></td>
+                                                <td class="text-center" th:text="${montir.getAlamat()}"></td>
+                                                <td class="text-center" th:text="${montir.getShift}" ></td>
                                             </tr>
                                         </tbody>
                                     </table>
