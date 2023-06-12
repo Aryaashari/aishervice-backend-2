@@ -72,6 +72,7 @@ public class InventarisController{
         return "redirect:/inventaris";
     }
 
+
     @PostMapping("/inventaris/{id}/hapus")
     public String delete(@PathVariable("id") Long id, RedirectAttributes redirectAttributes) {
         this.inventarisService.deleteInventaris(id);
