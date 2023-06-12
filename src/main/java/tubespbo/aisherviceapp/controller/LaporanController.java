@@ -24,6 +24,7 @@ public class LaporanController {
     @GetMapping("/laporan")
     public String index(Model model) {
         List<Laporan> laporanList = this.laporanService.getAll();
+        model.addAttribute("currentPage", "laporan");
         model.addAttribute("laporanList", laporanList);
         return "laporan";
     }

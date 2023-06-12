@@ -21,7 +21,7 @@ import lombok.Setter;
 public class Laporan {
     @Id
     @Column(name = "id_laporan")
-    private int id_laporan;
+    private int idLaporan;
 
     @Column(name="keterangan")
     private String keterangan;

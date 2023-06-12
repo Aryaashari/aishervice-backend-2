@@ -73,7 +73,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="table-primary" th:each="report, index : ${reports}">
+                                        <tr class="table-primary" th:each="report, index : ${laporanList}">
                                             <td class="text-center" th:text="${index.index + 1}"></td>
                                             <td th:text="${report.getIdLaporan()}"></td>
                                             <td th:text="${report.getKeterangan()}"></td>
