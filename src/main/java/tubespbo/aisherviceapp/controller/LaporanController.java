@@ -1,10 +1,12 @@
 package tubespbo.aisherviceapp.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.print.attribute.standard.DateTimeAtCreation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +32,9 @@ public class LaporanController {
     }
 
     @PostMapping("/laporan")
-    public String create(Model model, @RequestParam("keterangan") String keterangan, @RequestParam("tanggal") DateTimeAtCreation tanggal, @RequestParam("tipe") String tipe, @RequestParam("total") float total) {
+    public String create(Model model, @RequestParam("keterangan") String keterangan, @RequestParam("tanggal")
+                                   @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+                                   LocalDateTime tanggal, @RequestParam("tipe") String tipe, @RequestParam("total") float total) {
         LaporanCreateRequest request = new LaporanCreateRequest();
         request.setKeterangan(keterangan);
         request.setTanggal(tanggal);

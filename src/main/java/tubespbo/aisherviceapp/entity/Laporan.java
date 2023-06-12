@@ -1,6 +1,8 @@
 package tubespbo.aisherviceapp.entity;
 
-import javax.print.attribute.standard.DateTimeAtCreation;
+import java.time.LocalDateTime;
+
+// import javax.print.attribute.standard.DateTimeAtCreation;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,7 +29,7 @@ public class Laporan {
     private String keterangan;
 
     @Column(name="tanggal")
-    private DateTimeAtCreation tanggal;
+    private LocalDateTime tanggal;
 
     @Column(name = "tipe")
     private String tipe;

@@ -41,15 +41,22 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
                                         </div>
                                         <div class="modal-body">
-                                        <form class="mt-0" action="/report" method="post">
+                                        <form class="mt-0" action="/laporan" method="post">
                                             <div class="form-group">
                                                 <input type="text" class="form-control mb-2" name="keterangan" id="exampleInputUsername1" placeholder="Keterangan">
                                             </div>
                                             <div class="form-group">
-                                                <input type="datetime" class="form-control mb-2" name="tanggal" id="exampleInput2" placeholder="Tanggal">
+                                                <input type="datetime-local" name="tanggal" />
                                             </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control mb-2" name="tipe" id="exampleInput3" placeholder="Tipe">
+                                            <div class="input-group mb-4">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text">Tipe Laporan</span>
+                                                </div>
+                                                <select class="custom-select" name="tipe">
+                                                  <option selected value="">Pilih tipe laporan</option>
+                                                  <option value="pemasukan">Pemasukan</option>
+                                                  <option value="pengeluaran">Pengeluaran</option>
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <input type="number" class="form-control mb-2" name="total" id="exampleInput3" placeholder="Total Nominal" inputmode="numeric">
@@ -97,6 +104,8 @@
     </div>
     <!-- END MAIN CONTAINER -->
 
+    
+
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="assets/js/libs/jquery-3.1.1.min.js"></script>
     <script src="bootstrap/js/popper.min.js"></script>
@@ -120,6 +129,11 @@
     <script src="plugins/table/datatable/button-ext/buttons.html5.min.js"></script>
     <script src="plugins/table/datatable/button-ext/buttons.print.min.js"></script>
     <script>
+        var f2 = flatpickr(document.getElementById('dateTimeFlatpickr'), {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+        });
+
         $('#html5-extension').DataTable( {
             dom: '<"row"<"col-md-12"<"row"<"col-md-6"B><"col-md-6"f> > ><"col-md-12"rt> <"col-md-12"<"row"<"col-md-5"i><"col-md-7"p>>> >',
             buttons: {
