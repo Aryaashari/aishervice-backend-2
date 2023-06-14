@@ -40,7 +40,7 @@ public class AbsensiController {
     }
 
     @PostMapping("/absensi")
-    public String create(@RequestParam("id_montir") Long montir, @RequestParam("tanggal") @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime tanggal, @RequestParam("status") int status, @RequestParam("keterangan") String keterangan, RedirectAttributes redirectAttributes) {
+    public String create(@RequestParam("montir") Long montir, @RequestParam("tanggal") @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime tanggal, @RequestParam("status") int status, @RequestParam("keterangan") String keterangan, RedirectAttributes redirectAttributes) {
         AbsensiCreateRequest req = new AbsensiCreateRequest(montir, tanggal, status, keterangan);
         this.absensiService.createAbsensi(req);
         return "redirect:/absensi";
