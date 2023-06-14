@@ -9,11 +9,13 @@ import jakarta.transaction.Transactional;
 import tubespbo.aisherviceapp.entity.Customer;
 import tubespbo.aisherviceapp.entity.Montir;
 import tubespbo.aisherviceapp.entity.Progress;
+import tubespbo.aisherviceapp.entity.Transaksi;
 import tubespbo.aisherviceapp.model.ServiceCreateRequest;
 import tubespbo.aisherviceapp.repository.CustomerRepository;
 import tubespbo.aisherviceapp.repository.MontirRepository;
 import tubespbo.aisherviceapp.repository.ProgressRepository;
 import tubespbo.aisherviceapp.repository.ServiceRepository;
+import tubespbo.aisherviceapp.repository.TransaksiRepository;
 
 @Service
 public class ServiceService {
@@ -29,6 +31,9 @@ public class ServiceService {
 
     @Autowired
     private ProgressRepository progressRepo;
+
+    @Autowired
+    private TransaksiRepository transaksiRepo;
 
     @Transactional
     public List<tubespbo.aisherviceapp.entity.Service> getAll() {
@@ -60,7 +65,13 @@ public class ServiceService {
         progress.setCatatan_proses("baru dimulai");
         progress.setWaktu_progress(request.getEstimasiSelesai());
         this.progressRepo.save(progress);
+
         // create transaksi
+        Transaksi transaksi = new Transaksi();
+        transaksi.setService(service);
+        transaksi.setStatus("belum lunas");
+        transaksi.setTotal(request.getTotalBiaya());
+        this.transaksiRepo.save(transaksi);
     }
 
 }
