@@ -44,13 +44,14 @@ public class ServiceController {
     }
 
     @PostMapping("/service")
-    public String create(@RequestParam("pelanggan") Long pelanggan, @RequestParam("montir") Long montir, @RequestParam("catatanKerusakan") String catatanKerusakan, @RequestParam("waktuMulai")@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime waktuMulai, @RequestParam("estimasiSelesai")@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime estimasiSelesai) {
+    public String create(@RequestParam("pelanggan") Long pelanggan, @RequestParam("montir") Long montir, @RequestParam("catatanKerusakan") String catatanKerusakan, @RequestParam("waktuMulai")@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime waktuMulai, @RequestParam("estimasiSelesai")@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime estimasiSelesai, @RequestParam("totalBiaya") float totalBiaya) {
         ServiceCreateRequest request = new ServiceCreateRequest();
         request.setCatatanKerusakan(catatanKerusakan);
         request.setEstimasiSelesai(estimasiSelesai);
         request.setWaktuMulai(waktuMulai);
         request.setIdMontir(montir);
         request.setIdPelanggan(pelanggan);
+        request.setTotalBiaya(totalBiaya);
 
         this.serviceService.create(request);
 

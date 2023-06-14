@@ -12,6 +12,7 @@ import lombok.Setter;
 public class ServiceCreateRequest {
     private Long idPelanggan;
     private Long idMontir;
+    private float totalBiaya;
     private String catatanKerusakan;
     private LocalDateTime waktuMulai;
     private LocalDateTime estimasiSelesai;

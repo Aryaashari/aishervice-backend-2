@@ -39,4 +39,10 @@ public class TransaksiController{
         return "redirect:/transaksi";
     }
 
+    @PostMapping("/transaksi/{id}")
+    public String lunas(@PathVariable("id") Long id) {
+        this.transaksiService.updateLunas(id);
+        return "redirect:/transaksi";
+    }
+
 }

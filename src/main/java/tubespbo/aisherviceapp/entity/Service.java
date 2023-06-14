@@ -49,4 +49,7 @@ public class Service {
     @OneToOne(mappedBy = "service")
     private Progress progress;
 
+    @OneToOne(mappedBy = "service")
+    private Transaksi transaksi;
+
 }
