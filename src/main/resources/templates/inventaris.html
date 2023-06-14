@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head lang="en" th:replace="fragments :: header"></head>
+
 <body class="sidebar-noneoverflow starterkit">
-    
+
     <div th:replace="fragments :: navbar"></div>
 
     <!--  BEGIN MAIN CONTAINER  -->
@@ -13,7 +15,7 @@
         <div class="search-overlay"></div>
 
         <div th:replace="fragments :: sidebar"></div>
-        
+
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
             <div class="layout-px-spacing">
@@ -37,42 +39,54 @@
                                 <div class="table-responsive">
                                     <table class="table mb-4">
                                         <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-primary mb-2 mr-2" data-toggle="modal" data-target="#registerModal">
-                                        Tambah Inventaris
+                                        <button type="button" class="btn btn-primary mb-2 mr-2" data-toggle="modal"
+                                            data-target="#registerModal">
+                                            Tambah Inventaris
                                         </button>
-  
+
                                         <!-- Modal -->
-                                        <div class="modal fade register-modal" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+                                        <div class="modal fade register-modal" id="registerModal" tabindex="-1"
+                                            role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-    
-                                                <div class="modal-header" id="registerModalLabel">
-                                                <h4 class="modal-title">Tambah Inventaris</h4>
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                                                <div class="modal-content">
+
+                                                    <div class="modal-header" id="registerModalLabel">
+                                                        <h4 class="modal-title">Tambah Inventaris</h4>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-hidden="true"><svg aria-hidden="true"
+                                                                xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="feather feather-x">
+                                                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                                                            </svg></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form class="mt-0" action="/inventaris" method="post">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control mb-2"
+                                                                    name="suku_cadang" id="exampleInputUsername1"
+                                                                    placeholder="Suku cadang">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="number" class="form-control mb-2"
+                                                                    name="stok" id="exampleInput2" placeholder="Stok"
+                                                                    inputmode="numeric">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="number" class="form-control mb-4"
+                                                                    name="harga_satuan" id="exampleInput3"
+                                                                    placeholder="Harga satuan" inputmode="numeric">
+                                                            </div>
+                                                            <button type="submit"
+                                                                class="btn btn-primary mt-2 mb-2 btn-block">Tambah</button>
+                                                        </form>
+
+                                                    </div>
                                                 </div>
-                                                <div class="modal-body">
-                                                <form class="mt-0" action="/inventaris" method="post">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control mb-2" name="suku_cadang" id="exampleInputUsername1" placeholder="Suku cadang">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="number" class="form-control mb-2" name="stok" id="exampleInput2" placeholder="Stok" inputmode="numeric">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="number" class="form-control mb-4" name="harga_satuan" id="exampleInput3" placeholder="Harga satuan" inputmode="numeric">
-                                                    </div>
-                                                    <button type="submit" class="btn btn-primary mt-2 mb-2 btn-block">Tambah</button>
-                                                </form>
-    
-                                                </div>
                                             </div>
-                                            </div>
-                                        </div>
-                                        <div class="search-input-group-style input-group mb-3 mt-3 ml-auto">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
-                                            </div>
-                                            <input type="text" class="form-control" placeholder="Cari Inventaris" aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                         <caption>List inventaris</caption>
                                         <thead>
@@ -85,57 +99,105 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr th:each="inventaris, index : ${objInventaris}" th:id="'row-' + ${inventaris.getIdInventaris()}">
+                                            <tr th:each="inventaris, index : ${objInventaris}"
+                                                th:id="'row-' + ${inventaris.getIdInventaris()}">
                                                 <td class="text-center" th:text="${index.index + 1}"></td>
                                                 <td th:text="${inventaris.getSukuCadang()}"></td>
-                                                <td th:text="${inventaris.getStok()}" class=""><span class=""></span></td>
+                                                <td th:text="${inventaris.getStok()}" class=""><span class=""></span>
+                                                </td>
                                                 <td th:text="${inventaris.getHargaSatuan()}"></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-success" data-toggle="modal" th:data-target="'#tambahStok-' + ${inventaris.getIdInventaris()}">
+                                                    <button type="button" class="btn btn-success" data-toggle="modal"
+                                                        th:data-target="'#tambahStok-' + ${inventaris.getIdInventaris()}">
                                                         Tambah Stok
                                                     </button>
-                                                    <div class="modal fade register-modal" th:id="'tambahStok-' + ${inventaris.getIdInventaris()}" tabindex="-1" role="dialog" th:aria-labelledby="'tambahStokLabel-' + ${inventaris.getIdInventaris()}" aria-hidden="true">
+                                                    <div class="modal fade register-modal"
+                                                        th:id="'tambahStok-' + ${inventaris.getIdInventaris()}"
+                                                        tabindex="-1" role="dialog"
+                                                        th:aria-labelledby="'tambahStokLabel-' + ${inventaris.getIdInventaris()}"
+                                                        aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header" id="tambahStokLabel">
                                                                     <h4 class="modal-title">Tambah Jumlah Stok</h4>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                                                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-hidden="true">
+                                                                        <svg aria-hidden="true"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            width="24" height="24" viewBox="0 0 24 24"
+                                                                            fill="none" stroke="currentColor"
+                                                                            stroke-width="2" stroke-linecap="round"
+                                                                            stroke-linejoin="round"
+                                                                            class="feather feather-x">
                                                                             <line x1="18" y1="6" x2="6" y2="18"></line>
                                                                             <line x1="6" y1="6" x2="18" y2="18"></line>
                                                                         </svg>
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form class="mt-0" th:action="@{/inventaris/{id}/tambah-stok(id=${inventaris.getIdInventaris()})}" method="post" id="tambahStokForm" th:attr="data-id=${inventaris.getIdInventaris()}">
+                                                                    <form class="mt-0"
+                                                                        th:action="@{/inventaris/{id}/tambah-stok(id=${inventaris.getIdInventaris()})}"
+                                                                        method="post" id="tambahStokForm"
+                                                                        th:attr="data-id=${inventaris.getIdInventaris()}">
                                                                         <div class="form-group">
-                                                                            <input type="number" class="form-control mb-2" name="jumlahStok" id="exampleInput2" placeholder="Jumlah Stok" inputmode="numeric">
+                                                                            <input type="number"
+                                                                                class="form-control mb-2"
+                                                                                name="jumlahStok" id="exampleInput2"
+                                                                                placeholder="Jumlah Stok"
+                                                                                inputmode="numeric">
                                                                         </div>
-                                                                        <button type="submit" class="btn btn-primary mt-2 mb-2 btn-block" onclick="submitForm()">Tambah</button>
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary mt-2 mb-2 btn-block"
+                                                                            onclick="submitForm()">Tambah</button>
                                                                     </form>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal" th:data-target="'#kurangiStok-' + ${inventaris.getIdInventaris()}">
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal"
+                                                        th:data-target="'#kurangiStok-' + ${inventaris.getIdInventaris()}">
                                                         Kurangi Stok
                                                     </button>
-                                                    <div class="modal fade register-modal" th:id="'kurangiStok-' + ${inventaris.getIdInventaris()}" tabindex="-1" role="dialog" th:aria-labelledby="'tambahStokLabel-' + ${inventaris.getIdInventaris()}" aria-hidden="true">
+                                                    <div class="modal fade register-modal"
+                                                        th:id="'kurangiStok-' + ${inventaris.getIdInventaris()}"
+                                                        tabindex="-1" role="dialog"
+                                                        th:aria-labelledby="'tambahStokLabel-' + ${inventaris.getIdInventaris()}"
+                                                        aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header" id="kurangiStokLabel">
-                                                            <h4 class="modal-title">Kurangi Jumlah Stok</h4>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                            <form class="mt-0" action="/inventaris/{id}/kurangi-stok" method="post" id="kurangiStokForm" th:attr="data-id=${inventaris.getIdInventaris()}">
-                                                                <div class="form-group">
-                                                                    <input type="number" class="form-control mb-2" name="jumlahStok" id="exampleInput2" placeholder="Jumlah Stok" inputmode="numeric">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header" id="kurangiStokLabel">
+                                                                    <h4 class="modal-title">Kurangi Jumlah Stok</h4>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-hidden="true"><svg
+                                                                            aria-hidden="true"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            width="24" height="24" viewBox="0 0 24 24"
+                                                                            fill="none" stroke="currentColor"
+                                                                            stroke-width="2" stroke-linecap="round"
+                                                                            stroke-linejoin="round"
+                                                                            class="feather feather-x">
+                                                                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                                                                        </svg></button>
                                                                 </div>
-                                                                <button type="submit" class="btn btn-primary mt-2 mb-2 btn-block" onclick="submitForm()">Kurangi</button>
-                                                            </form>
+                                                                <div class="modal-body">
+                                                                    <form class="mt-0"
+                                                                        action="/inventaris/{id}/kurangi-stok"
+                                                                        method="post" id="kurangiStokForm"
+                                                                        th:attr="data-id=${inventaris.getIdInventaris()}">
+                                                                        <div class="form-group">
+                                                                            <input type="number"
+                                                                                class="form-control mb-2"
+                                                                                name="jumlahStok" id="exampleInput2"
+                                                                                placeholder="Jumlah Stok"
+                                                                                inputmode="numeric">
+                                                                        </div>
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary mt-2 mb-2 btn-block"
+                                                                            onclick="submitForm()">Kurangi</button>
+                                                                    </form>
+                                                                </div>
                                                             </div>
-                                                        </div>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -143,8 +205,8 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                    
-                             
+
+
                             </div>
                         </div>
                     </div>
@@ -168,15 +230,15 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/js/app.js"></script>
-    
+
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             App.init();
         });
     </script>
     <script src="assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
-
+    <script src="assets/js/elements/custom-search.js"></script>
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     <script src="plugins/apex/apexcharts.min.js"></script>
     <script src="assets/js/dashboard/dash_1.js"></script>
@@ -186,17 +248,17 @@
         $('a[href="' + currentPath + '"], a[data-active="true"]').closest('.menu').addClass('active');
     </script>
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-    
+
     <script>
         function submitForm() {
-            event.preventDefault(); 
+            event.preventDefault();
 
-            var form = event.target.closest('form'); 
-            var id_inventaris = form.getAttribute("data-id"); 
+            var form = event.target.closest('form');
+            var id_inventaris = form.getAttribute("data-id");
 
             var url = form.getAttribute("action").replace("{id}", id_inventaris);
 
-            var xhr = new XMLHttpRequest(); 
+            var xhr = new XMLHttpRequest();
             xhr.open('POST', url, true);
 
             xhr.onload = function () {
@@ -220,4 +282,5 @@
         }
     </script>
 </body>
+
 </html>
