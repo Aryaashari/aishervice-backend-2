@@ -31,16 +31,10 @@ public class TransaksiService{
     }
 
     @Transactional
-    public void deleteCustomer(Long id) {
-        this.transaksiRepo.deleteById(id);
-    }
-
-    public String getStatus() {
-        return null;
-    }
-
-    public Float getTotal() {
-        return null;
+    public void updateLunas(Long id) {
+        Transaksi transaksi = this.transaksiRepo.findById(id).orElse(null);
+        transaksi.setStatus("lunas");
+        this.transaksiRepo.save(transaksi);
     }
 
 }
