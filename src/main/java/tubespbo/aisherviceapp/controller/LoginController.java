@@ -5,12 +5,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class DashboardController {
+public class LoginController {
     
-    @GetMapping("/index")
+    @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("currentPage", "index");
-        return "index";
+        model.addAttribute("currentPage", "login");
+        return "login";
     }
-
 }
