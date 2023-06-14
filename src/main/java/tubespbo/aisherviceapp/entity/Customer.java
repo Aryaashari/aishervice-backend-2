@@ -34,4 +34,7 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer")
     private List<Transportation> transportations;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Service> services;
 }

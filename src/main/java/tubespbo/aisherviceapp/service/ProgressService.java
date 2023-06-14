@@ -24,7 +24,6 @@ public class ProgressService{
     @Transactional
     public void createProgress(ProgressCreateRequest request) {
         Progress objProgress = new Progress();
-        objProgress.setId_service(request.getId_service());
         objProgress.setCatatan_proses(request.getCatatan_progress());
         objProgress.setWaktu_progress(request.getWaktu_progress());
 
