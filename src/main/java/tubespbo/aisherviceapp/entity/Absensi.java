@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.security.Timestamp;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -27,7 +27,7 @@ public class Absensi {
     private Long idAbsensi;
 
     @Column(name="tanggal")
-    private Timestamp tanggal;
+    private LocalDateTime tanggal;
 
     @Column(name="status")
     private int status;

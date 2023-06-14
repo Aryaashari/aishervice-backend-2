@@ -35,9 +35,13 @@
                       <select class="custom-select" name="montir">
                         <option selected value="">Pilih Montir</option>
                         
-                        <option th:each="montir: ${montirs}" th:value="${montir.getIdMontir()}" th:text="${montir.getIdMontir() + ' - ' + montir.getNama()}"></option>
+                        <option th:each="montirs: ${montir}" th:value="${montir.getId_montir()}" th:text="${montir.getId_montir() + ' - ' + montir.getNama()}"></option>
                       </select>
                     </div>
+
+                    <div class="form-group">
+                      <input type="datetime-local" name="tanggal" />
+                  </div>
 
                     <div class="input-group mb-4">
                         <div class="input-group-prepend">
@@ -56,7 +60,7 @@
                       </div>
                       <input
                         type="text"
-                        name="nomorMesin"
+                        name="keterangan"
                         class="form-control"
                       />
                     </div>
@@ -92,12 +96,12 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr th:each="transportation, index : ${transportations}" >
+                        <tr th:each="absensi, index : ${absensis}" >
                           <td class="text-center" th:text="${index.index + 1}"></td>
-                          <td class="text-primary" th:text="${transportation.getCustomer()}"></td>
-                          <td th:text="${transportation.getNoPlat()}"></td>
-                          <td th:text="${transportation.getJenisKendaraan()}" ></td>
-                          <td th:text="${transportation.getNomorMesin()}"></td>
+                          <td class="text-primary" th:text="${absensi.getMontir()}"></td>
+                          <td th:text="${absensi.getTanggal()}"></td>
+                          <td th:text="${absensi.getStatus()}" ></td>
+                          <td th:text="${absensi.getKeterangan()}"></td>
                         </tr>
                       </tbody>
                     </table>

@@ -1,9 +1,11 @@
 package tubespbo.aisherviceapp.controller;
 
-import java.security.Timestamp;
+// import java.security.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +40,7 @@ public class AbsensiController {
     }
 
     @PostMapping("/absensi")
-    public String create(@RequestParam("id_montir") Long montir, @RequestParam("tanggal") Timestamp tanggal, @RequestParam("status") int status, @RequestParam("keterangan") String keterangan, RedirectAttributes redirectAttributes) {
+    public String create(@RequestParam("id_montir") Long montir, @RequestParam("tanggal") @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime tanggal, @RequestParam("status") int status, @RequestParam("keterangan") String keterangan, RedirectAttributes redirectAttributes) {
         AbsensiCreateRequest req = new AbsensiCreateRequest(montir, tanggal, status, keterangan);
         this.absensiService.createAbsensi(req);
         return "redirect:/absensi";
