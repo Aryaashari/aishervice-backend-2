@@ -45,11 +45,11 @@ public class MontirController {
         @RequestParam("alamat") String alamat, 
         @RequestParam("shift") String shift) {
 
-            MontirCreateRequest request = new MontirCreateRequest(nama, noHp, email, alamat, shift);
-            
-            this.montirService.create(request);
+        MontirCreateRequest request = new MontirCreateRequest(nama, noHp, email, alamat, shift);
+        
+        this.montirService.create(request);
 
-            return "redirect:/montir";
+        return "redirect:/montir";
 
     }
 }
