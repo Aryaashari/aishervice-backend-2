@@ -105,7 +105,7 @@
                       <tbody>
                         <tr th:each="transportation, index : ${transportations}" >
                           <td class="text-center" th:text="${index.index + 1}"></td>
-                          <td class="text-primary" th:text="${transportation.getCustomer()}"></td>
+                          <td class="text-primary" th:text="${transportation.getCustomer().getNama()}"></td>
                           <td th:text="${transportation.getNoPlat()}"></td>
                           <td th:text="${transportation.getJenisKendaraan()}" ></td>
                           <td th:text="${transportation.getNomorMesin()}"></td>
