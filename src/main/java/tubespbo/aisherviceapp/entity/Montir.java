@@ -41,7 +41,10 @@ public class Montir {
 
     @Column(name = "shift")
     private String shift;
-    
+  
+    @OneToMany(mappedBy = "montir")
+    private List<Absensi> absensis;
+  
     @OneToMany(mappedBy = "montir")
     private List<Service> services;
 }
