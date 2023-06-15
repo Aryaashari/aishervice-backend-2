@@ -1,12 +1,14 @@
 package tubespbo.aisherviceapp.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
 import tubespbo.aisherviceapp.entity.Montir;
+import tubespbo.aisherviceapp.helper.RandomId;
 import tubespbo.aisherviceapp.model.MontirCreateRequest;
 import tubespbo.aisherviceapp.repository.MontirRepository;
 
@@ -31,6 +33,7 @@ public class MontirService {
     public void create(MontirCreateRequest request) {
         Montir montir = new Montir();
 
+        montir.setIdMontir(RandomId.getRandomId());
         montir.setName(request.getNama());
         montir.setNoHp(request.getNoHp());
         montir.setAlamat(request.getAlamat());
