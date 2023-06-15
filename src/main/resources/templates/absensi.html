@@ -18,7 +18,7 @@
 
           <div class="page-header">
             <div class="page-title">
-              <h3>Kendaraan</h3>
+              <h3>Absensi</h3>
             </div>
           </div>
 
@@ -26,47 +26,41 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
               <div class="widget-content-area br-4">
                 <div class="widget-one">
-                  <h6>Tambah Kendaraan</h6>
-
-                  <form action="/kendaraan" method="POST">
-                    <div class="input-group mb-4">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">Plat Nomor</span>
-                      </div>
-                      <input type="text" name="plat1" class="form-control" />
-                      <input type="text" name="plat2" class="form-control" />
-                      <input type="text" name="plat3" class="form-control" />
-                    </div>
+                  <h6>Tambah Absensi</h6>
 
                     <div class="input-group mb-4">
                       <div class="input-group-prepend">
-                        <span class="input-group-text">Pelanggan</span>
+                        <span class="input-group-text">Montir</span>
                       </div>
-                      <select class="custom-select" name="pelanggan">
-                        <option selected value="">Pilih pelanggan</option>
+                      <select class="custom-select" name="montir">
+                        <option selected value="">Pilih Montir</option>
                         
-                        <option th:each="customer: ${customers}" th:value="${customer.getIdPelanggan()}" th:text="${customer.getIdPelanggan() + ' - ' + customer.getNama()}"></option>
+                        <option th:each="montirs: ${montir}" th:value="${montir.getId_montir()}" th:text="${montir.getId_montir() + ' - ' + montir.getNama()}"></option>
                       </select>
                     </div>
 
+                    <div class="form-group">
+                      <input type="datetime-local" name="tanggal" />
+                  </div>
+
                     <div class="input-group mb-4">
                         <div class="input-group-prepend">
-                          <span class="input-group-text">Jenis Kendaraan</span>
+                          <span class="input-group-text">Status</span>
                         </div>
-                        <select class="custom-select" name="jenisKendaraan">
-                          <option selected value="">Pilih jenis kendaraan</option>
-                          <option value="motor">Motor</option>
-                          <option value="mobil">Mobil</option>
+                        <select class="custom-select" name="status">
+                          <option selected value="">Pilih Status Absen</option>
+                          <option value="hadir">Hadir</option>
+                          <option value="tidak hadir">Tidak Hadir</option>
                         </select>
                     </div>
 
                     <div class="input-group mb-4">
                       <div class="input-group-prepend">
-                        <span class="input-group-text">Nomor Mesin</span>
+                        <span class="input-group-text">Keterangan</span>
                       </div>
                       <input
                         type="text"
-                        name="nomorMesin"
+                        name="keterangan"
                         class="form-control"
                       />
                     </div>
@@ -86,29 +80,28 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
               <div class="widget-content-area br-4">
                 <div class="widget-one">
-                  <h6>List Kendaraan</h6>
+                  <h6>List Montir</h6>
 
                   <div class="table-responsive">
                     <table class="table mb-4">
                       <caption>
-                        List Kendaraan
                       </caption>
                       <thead>
                         <tr>
                           <th class="text-center">#</th>
-                          <th>Nama Pelanggan</th>
-                          <th>No Plat</th>
-                          <th>Jenis Kendaraan</th>
-                          <th>Nomor Mesin</th>
+                          <th>Nama Montir</th>
+                          <th>Tanggal</th>
+                          <th>Status</th>
+                          <th>Keterangan</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr th:each="transportation, index : ${transportations}" >
+                        <tr th:each="absensi, index : ${absensis}" >
                           <td class="text-center" th:text="${index.index + 1}"></td>
-                          <td class="text-primary" th:text="${transportation.getCustomer()}"></td>
-                          <td th:text="${transportation.getNoPlat()}"></td>
-                          <td th:text="${transportation.getJenisKendaraan()}" ></td>
-                          <td th:text="${transportation.getNomorMesin()}"></td>
+                          <td class="text-primary" th:text="${absensi.getMontir()}"></td>
+                          <td th:text="${absensi.getTanggal()}"></td>
+                          <td th:text="${absensi.getStatus()}" ></td>
+                          <td th:text="${absensi.getKeterangan()}"></td>
                         </tr>
                       </tbody>
                     </table>

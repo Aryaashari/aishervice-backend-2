@@ -1,13 +1,10 @@
 package tubespbo.aisherviceapp.entity;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,22 +13,30 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "customer")
-public class Customer {
+@Table(name = "montir")
+public class Montir {
+   
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_pelanggan")
-    private Long idPelanggan;
-    private String nama;
+    @Column(name = "id_montir")
+    private Long idMontir;
 
-    @Column(name="no_hp")
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "no_hp")
     private String noHp;
+
+    @Column(name = "alamat")
     private String alamat;
+
+    @Column(name = "email")
     private String email;
 
-    @OneToMany(mappedBy = "customer")
-    private List<Transportation> transportations;
+    @Column(name = "shift")
+    private String shift;
+
 }

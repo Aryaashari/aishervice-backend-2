@@ -25,7 +25,7 @@ public class AdminService {
 
     @Transactional
     public Admin getDataByUsername(String username) {
-        return this.adminRepo.findById(username).orElseThrow(null);
+        return this.adminRepo.findById(username).orElse(null);
     }
 
     @Transactional

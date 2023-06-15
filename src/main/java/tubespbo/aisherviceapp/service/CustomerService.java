@@ -23,7 +23,7 @@ public class CustomerService {
 
     @Transactional
     public Customer getById(Long id) {
-        return this.customerRepo.findById(id).orElseThrow(null);
+        return this.customerRepo.findById(id).orElse(null);
     }
 
     @Transactional

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="fragments :: header"></head>
+<body class="sidebar-noneoverflow starterkit">
+    
+    <div th:replace="fragments :: navbar"></div>
+
+    <!--  BEGIN MAIN CONTAINER  -->
+    <div class="main-container" id="container">
+
+        <div class="overlay"></div>
+        <div class="search-overlay"></div>
+
+        <div th:replace="fragments :: sidebar"></div>
+        
+        <!--  BEGIN CONTENT AREA  -->
+        <div id="content" class="main-content">
+            <div class="layout-px-spacing">
+
+                <div class="page-header">
+                    <div class="page-title">
+                        <h3>Laporan Keuangan</h3>
+                    </div>
+                </div>
+                
+                <div class="row layout-top-spacing" id="cancel-row">
+
+                    <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                        
+                        <div class="widget-content widget-content-area br-6">
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary mb-2 mr-2" data-toggle="modal" data-target="#registerModal">
+                                Tambah Data
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade register-modal" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header" id="registerModalLabel">
+                                        <h4 class="modal-title">Tambah Data</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                                        </div>
+                                        <div class="modal-body">
+                                        <form class="mt-0" action="/laporan" method="post">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control mb-2" name="keterangan" id="exampleInputUsername1" placeholder="Keterangan">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="datetime-local" name="tanggal" />
+                                            </div>
+                                            <div class="input-group mb-4">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text">Tipe Laporan</span>
+                                                </div>
+                                                <select class="custom-select" name="tipe">
+                                                  <option selected value="">Pilih tipe laporan</option>
+                                                  <option value="pemasukan">Pemasukan</option>
+                                                  <option value="pengeluaran">Pengeluaran</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="number" class="form-control mb-2" name="total" id="exampleInput3" placeholder="Total Nominal" inputmode="numeric">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary mt-2 mb-2 btn-block">Tambah Data</button>
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive mb-4 mt-4">
+                                <table id="html5-extension" class="table table-hover non-hover" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">No.</th>
+                                            <th class="text-center">ID</th>
+                                            <th class="text-center">Keterangan</th>
+                                            <th class="text-center">Tanggal</th>
+                                            <th class="text-center">Tipe</th>
+                                            <th class="text-center">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="table-primary" th:each="report, index : ${laporanList}">
+                                            <td class="text-center" th:text="${index.index + 1}"></td>
+                                            <td th:text="${report.getIdLaporan()}"></td>
+                                            <td th:text="${report.getKeterangan()}"></td>
+                                            <td th:text="${report.getTanggal()}"></td>
+                                            <td th:text="${report.getTipe()}"></td>
+                                            <td th:text="${report.getTotal()}"></td>
+                                        </tr>
+                                    </tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                </div>
+                <div th:replace="fragments :: footer"></div>
+        <!--  END CONTENT AREA  -->
+
+    </div>
+    <!-- END MAIN CONTAINER -->
+
+    
+
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
+    <script src="assets/js/custom.js"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    <script src="plugins/table/datatable/datatables.js"></script>
+    <!-- NOTE TO Use Copy CSV Excel PDF Print Options You Must Include These Files  -->
+    <script src="plugins/table/datatable/button-ext/dataTables.buttons.min.js"></script>
+    <script src="plugins/table/datatable/button-ext/jszip.min.js"></script>    
+    <script src="plugins/table/datatable/button-ext/buttons.html5.min.js"></script>
+    <script src="plugins/table/datatable/button-ext/buttons.print.min.js"></script>
+    <script>
+        var f2 = flatpickr(document.getElementById('dateTimeFlatpickr'), {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+        });
+
+        $('#html5-extension').DataTable( {
+            dom: '<"row"<"col-md-12"<"row"<"col-md-6"B><"col-md-6"f> > ><"col-md-12"rt> <"col-md-12"<"row"<"col-md-5"i><"col-md-7"p>>> >',
+            buttons: {
+                buttons: [
+                    { extend: 'copy', className: 'btn btn-outline-primary mb-2' },
+                    { extend: 'csv', className: 'btn btn-outline-primary mb-2' },
+                    { extend: 'excel', className: 'btn btn-outline-primary mb-2' },
+                    { extend: 'print', className: 'btn btn-outline-primary mb-2' }
+                ]
+            },
+            "oLanguage": {
+                "oPaginate": { "sPrevious": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>', "sNext": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' },
+                "sInfo": "Showing page _PAGE_ of _PAGES_",
+                "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+                "sSearchPlaceholder": "Cari...",
+                "sLengthMenu": "Results :  _MENU_",
+            },
+            "stripeClasses": [],
+            "lengthMenu": [7, 10, 20, 50],
+            "pageLength": 7
+        } );
+    </script>
+    <script>
+        var currentPath = window.location.pathname;
+        $('.menu').removeClass('active');
+        $('a[href="' + currentPath + '"], a[data-active="true"]').closest('.menu').addClass('active');
+    </script>
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+</body>
+</html>
