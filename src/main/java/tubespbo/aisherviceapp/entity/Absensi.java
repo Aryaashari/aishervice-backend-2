@@ -1,6 +1,5 @@
 package tubespbo.aisherviceapp.entity;
 
-import java.security.Timestamp;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -9,7 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,23 +20,20 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name ="progress")
-
-public class Progress {
+@Table(name = "absensi")
+public class Absensi {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_proses") 
-    private Long id_proses;
+    @Column(name = "id_absensi")
+    private Long idAbsensi;
 
-    @Column(name="catatan_proses")
-    private String catatan_proses;
+    private LocalDateTime tanggal;
 
-    @Column(name = "waktu_progress")
-    private LocalDateTime waktu_progress;
-
-    @OneToOne
-    @JoinColumn(name = "id_service", referencedColumnName = "id_service")
-    private Service service;
-
-
+    private String status;
+    private String keterangan;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_montir", referencedColumnName = "id_montir")
+    private Montir montir;
 }

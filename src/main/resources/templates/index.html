@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head lang="en" th:replace="fragments :: header"></head>
+
 <body class="sidebar-noneoverflow starterkit">
-    
+
     <div th:replace="fragments :: navbar"></div>
 
     <!--  BEGIN MAIN CONTAINER  -->
@@ -12,35 +14,307 @@
         <div class="search-overlay"></div>
 
         <div th:replace="fragments :: sidebar"></div>
-        
+
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
             <div class="layout-px-spacing">
 
 
                 <!-- CONTENT AREA -->
-                
-                <div class="page-header">
+
+                <div class="container-fluid page-header"
+                    style="display: flex; justify-content: center; align-items: center; height: 5vh;">
                     <div class="page-title">
-                        <h3>Dasbor</h3>
+                        <h3>Welcome</h3>
                     </div>
                 </div>
 
                 <div class="row layout-top-spacing">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
-                        
-                        <div class="widget-content-area br-4">
-                            <div class="widget-one">
 
-                                <h6>Blank Page - Kick Start you new project with ease!</h6>
+                    <div id="tabsWithIcons" class="container-fluid col-lg-10 col-10 layout-spacing">
+                        <div class="statbox widget box box-shadow">
+                            <div class="widget-header">
+                                <div class="row">
+                                </div>
+                            </div>
+                            <div class="widget-content widget-content-area rounded-pills-icon">
 
-                                <p class="">With CORK starter kit, you can begin your work without any hassle. The starter page is highly optimized which gives you freedom to start with minimal code and add only the desired components and plugins required for your project.</p>
+                                <ul class="nav nav-pills mb-4 mt-3  justify-content-center" id="rounded-pills-icon-tab"
+                                    role="tablist">
+                                    <li class="nav-item ml-2 mr-2">
+                                        <a class="nav-link mb-2 active text-center" id="rounded-pills-icon-home-tab"
+                                            data-toggle="pill" href="#rounded-pills-icon-home" role="tab"
+                                            aria-controls="rounded-pills-icon-home" aria-selected="true"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-settings">
+                                                <circle cx="12" cy="12" r="3"></circle>
+                                                <path
+                                                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                                                </path>
+                                            </svg> Service</a>
+                                    </li>
+                                    <li class="nav-item ml-2 mr-2">
+                                        <a class="nav-link mb-2 text-center" id="rounded-pills-icon-contact-tab"
+                                            data-toggle="pill" href="#rounded-pills-icon-contact" role="tab"
+                                            aria-controls="rounded-pills-icon-contact" aria-selected="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="feather feather-dollar-sign">
+                                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                        </svg> Transaksi</a>
+                                    </li>
 
+                                    <li class="nav-item ml-2 mr-2">
+                                        <a class="nav-link mb-2 text-center" id="rounded-pills-icon-settings-tab"
+                                            data-toggle="pill" href="#rounded-pills-icon-settings" role="tab"
+                                            aria-controls="rounded-pills-icon-settings" aria-selected="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="feather feather-archive">
+                                            <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                                            <rect x="1" y="3" width="22" height="5"></rect>
+                                            <line x1="10" y1="12" x2="14" y2="12"></line>
+                                        </svg>
+                                            </svg> Inventaris</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="rounded-pills-icon-tabContent">
+                                    <div class="tab-pane fade show active" id="rounded-pills-icon-home" role="tabpanel"
+                                        aria-labelledby="rounded-pills-icon-home-tab">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="container-fluid col-xl-8 col-lg-4 col-md-4 col-sm-4 col-12 ">
+                                                    <div class="widget widget-one_hybrid widget-followers ">
+                                                        <div class="widget-heading ">
+                                                            <div class="w-icon d-flex justify-content-center">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                                    stroke-width="2" stroke-linecap="round"
+                                                                    stroke-linejoin="round" class="feather feather-link">
+                                                                    <path
+                                                                        d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71">
+                                                                    </path>
+                                                                    <path
+                                                                        d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71">
+                                                                    </path>
+                                                                </svg>
+                                                            </div>
+                                                            <p class="w-value d-flex justify-content-center">
+                                                                <span th:text="${countService}"></span>
+                                                            </p>
+                                                            <h5 class="d-flex justify-content-center">Jumlah Service</h5>
+                                                            <a th:href="@{/service}">
+                                                                <div class="d-flex justify-content-center">
+                                                                    <button class="btn col-10 mt-3 btn-outline-primary mb-2">View more</button>
+                                                                </div>
+                                                                </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="container-fluid col-xl-8 col-lg-4 col-md-4 col-sm-4 col-12 ">
+                                                    <div class="widget widget-one_hybrid widget-followers ">
+                                                        <div class="widget-heading ">
+                                                            <div class="w-icon d-flex justify-content-center">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                                    stroke-width="2" stroke-linecap="round"
+                                                                    stroke-linejoin="round" class="feather feather-link">
+                                                                    <path
+                                                                        d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71">
+                                                                    </path>
+                                                                    <path
+                                                                        d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71">
+                                                                    </path>
+                                                                </svg>
+                                                            </div>
+                                                            <p class="w-value d-flex justify-content-center">
+                                                                <span th:text="${countProgress}"></span>
+                                                            </p>
+                                                            <h5 class="d-flex justify-content-center">Jumlah Progress Belum Selesai</h5>
+                                                            <a th:href="@{/progress}">
+                                                                <div class="d-flex justify-content-center">
+                                                                    <button class="btn col-10 mt-3 btn-outline-primary mb-2">View more</button>
+                                                                </div>
+                                                                </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                    <div class="tab-pane fade" id="rounded-pills-icon-contact" role="tabpanel"
+                                        aria-labelledby="rounded-pills-icon-contact-tab">
+                                        <div class="container-fluid col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                                            <div class="widget widget-one_hybrid widget-followers">
+                                                <div class="widget-heading">
+                                                    <div class="w-icon d-flex justify-content-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                            stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" class="feather feather-link">
+                                                            <path
+                                                                d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71">
+                                                            </path>
+                                                            <path
+                                                                d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71">
+                                                            </path>
+                                                        </svg>
+                                                    </div>
+                                                    <p class="w-value d-flex justify-content-center">
+                                                        <span th:text="${countTransaksi}"></span>
+                                                    </p>
+                                                    <h5 class="d-flex justify-content-center">Jumlah Transaksi Belum Lunas</h5>
+                                                    <a th:href="@{/transaksi}">
+                                                        <div class="d-flex justify-content-center">
+                                                            <button class="btn col-10 mt-3 btn-outline-primary mb-2">View more</button>
+                                                        </div>
+                                                        </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="rounded-pills-icon-settings" role="tabpanel"
+                                        aria-labelledby="rounded-pills-icon-settings-tab">
+                                        <div class="container-fluid col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                                            <div class="widget widget-one_hybrid widget-followers">
+                                                <div class="widget-heading">
+                                                    <div class="w-icon d-flex justify-content-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                            stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" class="feather feather-link">
+                                                            <path
+                                                                d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71">
+                                                            </path>
+                                                            <path
+                                                                d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71">
+                                                            </path>
+                                                        </svg>
+                                                    </div>
+                                                    <p class="w-value d-flex justify-content-center">
+                                                        <span th:text="${countInventaris}"></span>
+                                                    </p>
+                                                    <h5 class="d-flex justify-content-center">Jumlah Inventaris</h5>
+                                                    <a th:href="@{/inventaris}">
+                                                    <div class="d-flex justify-content-center">
+                                                        <button class="btn col-10 mt-3 btn-outline-primary mb-2">View more</button>
+                                                    </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- <div class="container-fluid col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+
+                        <div class="widget widget-table-two">
+
+                            <div class="widget-heading">
+                                <h5 class="">Recent Orders</h5>
+                            </div>
+
+                            <div class="widget-content">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <div class="th-content">Customer</div>
+                                                </th>
+                                                <th>
+                                                    <div class="th-content">Product</div>
+                                                </th>
+                                                <th>
+                                                    <div class="th-content">Invoice</div>
+                                                </th>
+                                                <th>
+                                                    <div class="th-content th-heading">Price</div>
+                                                </th>
+                                                <th>
+                                                    <div class="th-content">Status</div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="td-content customer-name"><img
+                                                            src="assets/img/90x90.jpg" alt="avatar">Andy King</div>
+                                                </td>
+                                                <td>
+                                                    <div class="td-content product-brand">Nike Sport</div>
+                                                </td>
+                                                <td>
+                                                    <div class="td-content">#76894</div>
+                                                </td>
+                                                <td>
+                                                    <div class="td-content pricing"><span class="">$88.00</span></div>
+                                                </td>
+                                                <td>
+                                                    <div class="td-content"><span
+                                                            class="badge outline-badge-primary">Shipped</span></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="td-content customer-name"><img
+                                                            src="assets/img/90x90.jpg" alt="avatar">Irene Collins</div>
+                                                </td>
+                                                <td>
+                                                    <div class="td-content product-brand">Speakers</div>
+                                                </td>
+                                                <td>
+                                                    <div class="td-content">#75844</div>
+                                                </td>
+                                                <td>
+                                                    <div class="td-content pricing"><span class="">$84.00</span></div>
+                                                </td>
+                                                <td>
+                                                    <div class="td-content"><span
+                                                            class="badge outline-badge-success">Paid</span></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="td-content customer-name"><img
+                                                            src="assets/img/90x90.jpg" alt="avatar">Laurie Fox</div>
+                                                </td>
+                                                <td>
+                                                    <div class="td-content product-brand">Camera</div>
+                                                </td>
+                                                <td>
+                                                    <div class="td-content">#66894</div>
+                                                </td>
+                                                <td>
+                                                    <div class="td-content pricing"><span class="">$126.04</span></div>
+                                                </td>
+                                                <td>
+                                                    <div class="td-content"><span
+                                                            class="badge outline-badge-danger">Pending</span></div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+
                 </div>
+
+
+
+
 
 
                 <!-- CONTENT AREA -->
@@ -59,15 +333,17 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/js/app.js"></script>
-    
+
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             App.init();
         });
     </script>
+    <script src="plugins/highlight/highlight.pack.js"></script>
     <script src="assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
 
+    <script src="assets/js/scrollspyNav.js"></script>
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     <script>
         var currentPath = window.location.pathname;
@@ -76,4 +352,5 @@
     </script>
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 </body>
+
 </html>

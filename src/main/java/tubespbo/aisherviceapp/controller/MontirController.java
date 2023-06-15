@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import tubespbo.aisherviceapp.service.MontirService;
-
 import tubespbo.aisherviceapp.entity.Montir;
 import tubespbo.aisherviceapp.model.MontirCreateRequest;
+import tubespbo.aisherviceapp.service.MontirService;
 
 @Controller
 public class MontirController {
@@ -46,16 +45,11 @@ public class MontirController {
         @RequestParam("alamat") String alamat, 
         @RequestParam("shift") String shift) {
 
-            MontirCreateRequest request = new MontirCreateRequest();
-            request.setNama(nama);
-            request.setNoHp(noHp);
-            request.setEmail(email);
-            request.setAlamat(alamat);
-            request.setShift(shift);
-            this.montirService.create(request);
+        MontirCreateRequest request = new MontirCreateRequest(nama, noHp, email, alamat, shift);
+        
+        this.montirService.create(request);
 
-            return "redirect:/montir";
+        return "redirect:/montir";
 
     }
-
 }
