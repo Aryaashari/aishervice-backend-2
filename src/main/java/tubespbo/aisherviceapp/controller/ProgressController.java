@@ -1,12 +1,14 @@
 package tubespbo.aisherviceapp.controller;
 
 import java.security.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -28,10 +30,9 @@ public class ProgressController {
         return "progress";
     }
 
-    @PostMapping("/progress")
-    public String create(@RequestParam("id_service") Long id_service, @RequestParam("catatan_progress") String catatan_progress, @RequestParam("waktu_progress") Timestamp waktu_progress) {
-        ProgressCreateRequest request = new ProgressCreateRequest(id_service, catatan_progress, waktu_progress);
-        this.progressService.createProgress(request);
+    @PostMapping("/progress/{id}")
+    public String selesai(@PathVariable("id") Long id_proses){
+        this.progressService.updateCatatan(id_proses);
         return "redirect:/progress";
     }
 

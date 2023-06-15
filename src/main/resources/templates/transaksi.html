@@ -32,10 +32,40 @@
                         <div class="widget-content-area br-4">
                             <div class="widget-one">
 
-                                <h6>Blank Page - Kick Start you new project with ease!</h6>
+                                <h6>List Transaksi</h6>
 
-                                <p class="">With CORK starter kit, you can begin your work without any hassle. The starter page is highly optimized which gives you freedom to start with minimal code and add only the desired components and plugins required for your project.</p>
+                                <div class="table-responsive">
+                                    <table class="table mb-4">
+                                        
+                                      <caption>List semua Transkasi</caption>
+                                      <thead>
+                                            <tr>
+                                                <th class="text-center">#</th>
+                                                <th>ID Service</th>
+                                                <th class="">Status</th>
+                                                <th>Total</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="transaksi,index : ${transaksis}">
+                                                <td class="text-center" th:text="${index.index + 1}"></td>
+                                                <td class="text-center" th:text="${transaksi.getService().getIdService()}"></td>
 
+                                                <td class=""><span class="badge outline-badge-success shadow-none" th:class="${transaksi.getStatus() == 'belum lunas' ? 'badge outline-badge-danger shadow-none' : 'badge outline-badge-success shadow-none'}" th:text="${transaksi.getStatus()}"></span></td>
+
+                                                <td th:text="${transaksi.getTotal()}"></td>
+                                                <td>
+                                                    <form th:action="@{/transaksi/{id}(id=${transaksi.getId_transaksi()})}" method="POST">
+                                                        <button type="submit" class="btn btn-success" th:class="${transaksi.getStatus() == 'lunas' ? 'btn btn-success disabled' : 'btn btn-success'}">Lunas</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                    
+                             
                             </div>
                         </div>
                     </div>
