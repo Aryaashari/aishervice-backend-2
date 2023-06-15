@@ -52,7 +52,7 @@
                                                 <td class="text-center" th:text="${index.index + 1}"></td>
                                                 <td class="text-center" th:text="${transaksi.getService().getIdService()}"></td>
 
-                                                <td class="" th:if="${transaksi.getStatus == 'lunas'}"><span class="badge outline-badge-success shadow-none" th:class="${transaksi.getStatus() == 'lunas' ? 'badge outline-badge-success shadow-none' : 'badge outline-badge-danger shadow-none'}" th:text="${transaksi.getStatus()}"></span></td>
+                                                <td class=""><span class="badge outline-badge-success shadow-none" th:class="${transaksi.getStatus() == 'belum lunas' ? 'badge outline-badge-danger shadow-none' : 'badge outline-badge-success shadow-none'}" th:text="${transaksi.getStatus()}"></span></td>
 
                                                 <td th:text="${transaksi.getTotal()}"></td>
                                                 <td>
