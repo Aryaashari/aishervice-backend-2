@@ -20,7 +20,7 @@ public class AuthController {
     @Autowired
     private AuthService authService;
     
-    @GetMapping("/login")
+    @GetMapping("/")
     public String loginView() {
         return "auth/login";
     }

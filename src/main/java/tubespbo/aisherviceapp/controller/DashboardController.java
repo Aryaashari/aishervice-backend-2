@@ -21,7 +21,6 @@ import tubespbo.aisherviceapp.service.InventarisService;
 import tubespbo.aisherviceapp.service.MontirService;
 import tubespbo.aisherviceapp.service.ProgressService;
 import tubespbo.aisherviceapp.service.ServiceService;
-import tubespbo.aisherviceapp.service.ServicesService;
 import tubespbo.aisherviceapp.service.TransaksiService;
 
 @Controller
@@ -53,7 +52,7 @@ public class DashboardController {
     @Autowired
     private ProgressRepository progressRepository;
 
-    @GetMapping("/")
+    @GetMapping("/index")
     public String index(Model model) {
         model.addAttribute("currentPage", "index");
         long countInventaris = inventarisRepository.count();
