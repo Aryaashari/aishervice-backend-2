@@ -82,34 +82,70 @@
                                 <div class="tab-content" id="rounded-pills-icon-tabContent">
                                     <div class="tab-pane fade show active" id="rounded-pills-icon-home" role="tabpanel"
                                         aria-labelledby="rounded-pills-icon-home-tab">
-                                        <div class="container-fluid col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12 ">
-                                            <div class="widget widget-one_hybrid widget-followers ">
-                                                <div class="widget-heading ">
-                                                    <div class="w-icon d-flex justify-content-center">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                            stroke-width="2" stroke-linecap="round"
-                                                            stroke-linejoin="round" class="feather feather-link">
-                                                            <path
-                                                                d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71">
-                                                            </path>
-                                                            <path
-                                                                d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71">
-                                                            </path>
-                                                        </svg>
-                                                    </div>
-                                                    <p class="w-value d-flex justify-content-center">
-                                                        <span th:text="${countService}"></span>
-                                                    </p>
-                                                    <h5 class="d-flex justify-content-center">Jumlah Service</h5>
-                                                    <a th:href="@{/service}">
-                                                        <div class="d-flex justify-content-center">
-                                                            <button class="btn col-10 mt-3 btn-outline-primary mb-2">View more</button>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="container-fluid col-xl-8 col-lg-4 col-md-4 col-sm-4 col-12 ">
+                                                    <div class="widget widget-one_hybrid widget-followers ">
+                                                        <div class="widget-heading ">
+                                                            <div class="w-icon d-flex justify-content-center">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                                    stroke-width="2" stroke-linecap="round"
+                                                                    stroke-linejoin="round" class="feather feather-link">
+                                                                    <path
+                                                                        d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71">
+                                                                    </path>
+                                                                    <path
+                                                                        d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71">
+                                                                    </path>
+                                                                </svg>
+                                                            </div>
+                                                            <p class="w-value d-flex justify-content-center">
+                                                                <span th:text="${countService}"></span>
+                                                            </p>
+                                                            <h5 class="d-flex justify-content-center">Jumlah Service</h5>
+                                                            <a th:href="@{/service}">
+                                                                <div class="d-flex justify-content-center">
+                                                                    <button class="btn col-10 mt-3 btn-outline-primary mb-2">View more</button>
+                                                                </div>
+                                                                </a>
                                                         </div>
-                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="container-fluid col-xl-8 col-lg-4 col-md-4 col-sm-4 col-12 ">
+                                                    <div class="widget widget-one_hybrid widget-followers ">
+                                                        <div class="widget-heading ">
+                                                            <div class="w-icon d-flex justify-content-center">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                                    stroke-width="2" stroke-linecap="round"
+                                                                    stroke-linejoin="round" class="feather feather-link">
+                                                                    <path
+                                                                        d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71">
+                                                                    </path>
+                                                                    <path
+                                                                        d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71">
+                                                                    </path>
+                                                                </svg>
+                                                            </div>
+                                                            <p class="w-value d-flex justify-content-center">
+                                                                <span th:text="${countProgress}"></span>
+                                                            </p>
+                                                            <h5 class="d-flex justify-content-center">Jumlah Progress Belum Selesai</h5>
+                                                            <a th:href="@{/progress}">
+                                                                <div class="d-flex justify-content-center">
+                                                                    <button class="btn col-10 mt-3 btn-outline-primary mb-2">View more</button>
+                                                                </div>
+                                                                </a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        
+                                        
                                     </div>
                                     <div class="tab-pane fade" id="rounded-pills-icon-contact" role="tabpanel"
                                         aria-labelledby="rounded-pills-icon-contact-tab">
@@ -132,7 +168,7 @@
                                                     <p class="w-value d-flex justify-content-center">
                                                         <span th:text="${countTransaksi}"></span>
                                                     </p>
-                                                    <h5 class="d-flex justify-content-center">Jumlah Transaksi</h5>
+                                                    <h5 class="d-flex justify-content-center">Jumlah Transaksi Belum Lunas</h5>
                                                     <a th:href="@{/transaksi}">
                                                         <div class="d-flex justify-content-center">
                                                             <button class="btn col-10 mt-3 btn-outline-primary mb-2">View more</button>
