@@ -62,7 +62,7 @@ public class ServiceService {
         // create progress
         Progress progress = new Progress();
         progress.setService(service);
-        progress.setCatatan_proses("baru dimulai");
+        progress.setCatatan_proses("Sedang dikerjakan");
         progress.setWaktu_progress(request.getEstimasiSelesai());
         this.progressRepo.save(progress);
 
