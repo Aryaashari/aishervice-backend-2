@@ -27,7 +27,7 @@
               <div class="widget-content-area br-4">
                 <div class="widget-one">
                   <h6>Tambah Absensi</h6>
-
+                  <form action="/absensi" method="POST">
                     <div class="input-group mb-4">
                       <div class="input-group-prepend">
                         <span class="input-group-text">Montir</span>
@@ -35,13 +35,13 @@
                       <select class="custom-select" name="montir">
                         <option selected value="">Pilih Montir</option>
                         
-                        <option th:each="montirs: ${montir}" th:value="${montir.getId_montir()}" th:text="${montir.getId_montir() + ' - ' + montir.getNama()}"></option>
+                        <option th:each="montir: ${montirs}" th:value="${montir.getIdMontir()}" th:text="${montir.getIdMontir() + ' - ' + montir.getName()}"></option>
                       </select>
                     </div>
 
                     <div class="form-group">
-                      <input type="datetime-local" name="tanggal" />
-                  </div>
+                      <input type="datetime-local" class="form-control" name="tanggal" />
+                    </div>
 
                     <div class="input-group mb-4">
                         <div class="input-group-prepend">
@@ -65,11 +65,10 @@
                       />
                     </div>
 
-                    <input
+                    <button
                       type="submit"
                       class="btn btn-info btn-block mb-4 mr-2"
-                      value="Submit"
-                    />
+                    >Submit</button>
                   </form>
                 </div>
               </div>
@@ -80,7 +79,7 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
               <div class="widget-content-area br-4">
                 <div class="widget-one">
-                  <h6>List Montir</h6>
+                  <h6>List Absensi</h6>
 
                   <div class="table-responsive">
                     <table class="table mb-4">
@@ -98,7 +97,7 @@
                       <tbody>
                         <tr th:each="absensi, index : ${absensis}" >
                           <td class="text-center" th:text="${index.index + 1}"></td>
-                          <td class="text-primary" th:text="${absensi.getMontir()}"></td>
+                          <td class="text-primary" th:text="${absensi.getMontir().getName()}"></td>
                           <td th:text="${absensi.getTanggal()}"></td>
                           <td th:text="${absensi.getStatus()}" ></td>
                           <td th:text="${absensi.getKeterangan()}"></td>

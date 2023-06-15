@@ -13,6 +13,6 @@ import java.time.LocalDateTime;
 public class AbsensiCreateRequest {
     private Long id_montir;
     private LocalDateTime tanggal;
-    private int status;
+    private String status;
     private String keterangan;
 }
