@@ -98,11 +98,15 @@
                                                             </path>
                                                         </svg>
                                                     </div>
-                                                    <p class="w-value d-flex justify-content-center">3</p>
+                                                    <p class="w-value d-flex justify-content-center">
+                                                        <span th:text="${countService}"></span>
+                                                    </p>
                                                     <h5 class="d-flex justify-content-center">Jumlah Service</h5>
-                                                    <div class="d-flex justify-content-center">
-                                                        <button class="btn col-10 mt-3 btn-outline-primary mb-2">View more</button>
-                                                    </div>
+                                                    <a th:href="@{/service}">
+                                                        <div class="d-flex justify-content-center">
+                                                            <button class="btn col-10 mt-3 btn-outline-primary mb-2">View more</button>
+                                                        </div>
+                                                        </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -125,11 +129,15 @@
                                                             </path>
                                                         </svg>
                                                     </div>
-                                                    <p class="w-value d-flex justify-content-center">3</p>
+                                                    <p class="w-value d-flex justify-content-center">
+                                                        <span th:text="${countTransaksi}"></span>
+                                                    </p>
                                                     <h5 class="d-flex justify-content-center">Jumlah Transaksi</h5>
-                                                    <div class="d-flex justify-content-center">
-                                                        <button class="btn col-10 mt-3 btn-outline-primary mb-2">View more</button>
-                                                    </div>
+                                                    <a th:href="@{/transaksi}">
+                                                        <div class="d-flex justify-content-center">
+                                                            <button class="btn col-10 mt-3 btn-outline-primary mb-2">View more</button>
+                                                        </div>
+                                                        </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -153,7 +161,7 @@
                                                         </svg>
                                                     </div>
                                                     <p class="w-value d-flex justify-content-center">
-                                                        <span th:text="${count}"></span>
+                                                        <span th:text="${countInventaris}"></span>
                                                     </p>
                                                     <h5 class="d-flex justify-content-center">Jumlah Inventaris</h5>
                                                     <a th:href="@{/inventaris}">
