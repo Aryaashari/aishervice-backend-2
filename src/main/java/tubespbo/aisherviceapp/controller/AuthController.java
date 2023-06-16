@@ -33,7 +33,7 @@ public class AuthController {
             return "redirect:/index" ;
         }
         
-        return "redirect:/login";
+        return "redirect:/";
     }
 
 }
