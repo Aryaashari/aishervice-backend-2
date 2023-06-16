@@ -30,10 +30,10 @@ public class AuthController {
         boolean isTrue = this.authService.login(username, password, request);
 
         if (isTrue) {
-            return "redirect:/";
+            return "redirect:/index" ;
         }
         
-        return "redirect:/login";
+        return "redirect:/";
     }
 
 }
