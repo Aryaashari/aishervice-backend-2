@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         <div class="dropdown-item">
-                            <a href="auth_login.html">
+                            <a th:href="@{/}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="feather feather-log-out">
@@ -102,7 +102,7 @@
         <nav id="compactSidebar">
             <ul class="menu-categories">
                 <li class="menu active">
-                    <a th:href="@{/}" th:class="${currentPage == 'index' ? 'menu-toggle active' : 'menu-toggle'}">
+                    <a th:href="@{/index}" th:class="${currentPage == 'index' ? 'menu-toggle active' : 'menu-toggle'}">
                         <div class="base-menu">
                             <div class="base-icons">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
